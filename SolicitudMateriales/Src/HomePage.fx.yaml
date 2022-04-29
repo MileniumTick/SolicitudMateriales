@@ -38,7 +38,7 @@ HomePage As screen:
             
             Set(showD,true);
             
-            If(User().Email in Managers.Email || User().FullName = "Franklin Carballo Segura" || User().FullName = "Ariel Gaitán Rodríguez" ,Navigate(SolicitudMateriales,None), Navigate(HomePage,None) )
+            If(User().Email in Managers.Email || User().FullName = "Franklin Carballo Segura" || User().FullName = "Ariel Gaitan Rodriguez" ,Navigate(SolicitudMateriales,None), Navigate(HomePage,None) )
         Text: ="Materiales"
         X: =981
         Y: =498

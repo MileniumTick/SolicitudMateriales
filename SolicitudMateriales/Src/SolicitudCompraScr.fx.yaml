@@ -1,0 +1,300 @@
+"SolicitudCompraScr As screen.'tabletLayout_Calendar_ver3.0'":
+
+    RectQuickActionBar1 As rectangle:
+        Fill: =RGBA(127, 178, 57, 1)
+        Height: =64
+        Width: =Parent.Width
+        ZIndex: =2
+
+    Label12 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =64
+        Size: =25
+        Text: ="Solicitud de Compra                "& User().FullName
+        Width: =1276
+        X: =90
+        ZIndex: =17
+
+    Container2 As groupContainer:
+        Height: =704
+        Width: =483
+        Y: =64
+        ZIndex: =18
+
+        BuscarProductoCompra As text:
+            BorderColor: =RGBA(187, 221, 140, 1)
+            BorderThickness: =1
+            Default: =""
+            Height: =41
+            HintText: ="Buscar producto"
+            HoverBorderColor: =RGBA(187, 221, 140, 1)
+            HoverFill: =RGBA(232, 244, 217, 1)
+            LineHeight: =1
+            Width: =420
+            Y: =15
+            ZIndex: =1
+
+        Icon6 As icon.Search:
+            BorderColor: =RGBA(187, 221, 140, 1)
+            Color: =RGBA(187, 221, 140, 1)
+            Height: =41
+            Icon: =Icon.Search
+            Width: =51
+            X: =369
+            Y: =15
+            ZIndex: =2
+
+        "Gallery2 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            Height: =647
+            Items: =Search(Products,BuscarProductoCompra.Text,"Product_Name")
+            Layout: =Layout.Vertical
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =Min(160, Self.Height - 60)
+            Width: =483
+            Y: =56
+            ZIndex: =3
+
+            Image1 As image:
+                DisplayMode: =If(ThisItem in ProductCollect,DisplayMode.Disabled,DisplayMode.Edit)
+                Height: =128
+                Image: =ThisItem.Product_Img
+                OnSelect: =Select(Parent);Collect(ProductCollect,ThisItem)
+                Width: =128
+                Y: =13
+                ZIndex: =1
+
+            Title5 As label:
+                DisplayMode: =If(ThisItem in ProductCollect,DisplayMode.Disabled,DisplayMode.Edit)
+                FontWeight: =FontWeight.Bold
+                Height: =79
+                OnSelect: =Select(Parent);Collect(ProductCollect,ThisItem)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: =ThisItem.Product_Name
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - Image1.Width - 104
+                X: =155
+                Y: =13
+                ZIndex: =2
+
+            Subtitle3 As label:
+                DisplayMode: =If(ThisItem in ProductCollect,DisplayMode.Disabled,DisplayMode.Edit)
+                Height: =36
+                OnSelect: =Select(Parent);Collect(ProductCollect,ThisItem)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =20
+                Text: |-
+                    ="Ideal en stock: "&ThisItem.Ideal_Stock
+                VerticalAlign: =VerticalAlign.Top
+                Width: =263
+                X: =155
+                Y: =92
+                ZIndex: =3
+
+            Separator3 As rectangle:
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =5
+
+            Subtitle3_1 As label:
+                Color: =If(ThisItem.Quantity < ThisItem.Ideal_Stock,Red,Green)
+                DisplayMode: =If(ThisItem in ProductCollect,DisplayMode.Disabled,DisplayMode.Edit)
+                Height: =32
+                OnSelect: =Select(Parent);Collect(ProductCollect,ThisItem)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =20
+                Text: |-
+                    ="En stock: "&ThisItem.Quantity
+                VerticalAlign: =VerticalAlign.Top
+                Width: =263
+                X: =155
+                Y: =128
+                ZIndex: =6
+
+            Rectangle3 As rectangle:
+                BorderColor: =RGBA(187, 221, 140, 1)
+                DisplayMode: =If(ThisItem in ProductCollect,DisplayMode.Disabled,DisplayMode.Edit)
+                Fill: =RGBA(127, 178, 57, 1)
+                Height: =4
+                OnSelect: =Select(Parent);Collect(ProductCollect,ThisItem)
+                Width: =263
+                X: =155
+                Y: =88
+                ZIndex: =7
+
+        RectCalendarSeparator1 As rectangle:
+            BorderColor: =RGBA(209, 232, 178, 1)
+            Fill: =RGBA(209, 232, 178, 1)
+            Height: =Parent.Height - Self.Y
+            Width: =2
+            X: =481
+            ZIndex: =4
+
+    Container4 As groupContainer:
+        Height: =704
+        Width: =883
+        X: =483
+        Y: =64
+        ZIndex: =19
+
+        "Gallery4 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            Height: =656
+            Items: =ProductCollect
+            Layout: =Layout.Vertical
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =Min(160, Self.Height - 60)
+            Width: =883
+            ZIndex: =1
+
+            Image6 As image:
+                Height: =128
+                Image: =ThisItem.Product_Img
+                OnSelect: =Select(Parent)
+                Width: =128
+                X: =16
+                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                ZIndex: =1
+
+            Title7 As label:
+                FontWeight: =FontWeight.Bold
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: ="Codigo de producto "&ThisItem.Product_ID
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - Image6.Width - 104
+                X: =Image6.X + Image6.Width + 24
+                Y: =16
+                ZIndex: =2
+
+            Subtitle5 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: =ThisItem.Product_Name
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Title7.Width
+                X: =Title7.X
+                Y: =64
+                ZIndex: =3
+
+            Separator5 As rectangle:
+                BorderColor: =RGBA(209, 232, 178, 1)
+                Fill: =RGBA(209, 232, 178, 1)
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =5
+
+            Label13 As label:
+                Height: =46
+                OnSelect: =Select(Parent)
+                Size: =15
+                Text: |-
+                    ="Ideal a solicitar: "&ThisItem.Ideal_Stock & " || En bodega: " & ThisItem.Quantity 
+                Width: =436
+                X: =161
+                Y: =96
+                ZIndex: =6
+
+            TextInput4 As text:
+                BorderColor: =If(Value(TextInput4.Text) < ThisItem.Ideal_Stock-ThisItem.Quantity,Red,RGBA(152, 208, 70, 1))
+                Default: =""
+                Height: =38
+                HintText: ="Cantidad a solicitar"
+                HoverBorderColor: =RGBA(127, 178, 57, 1)
+                HoverFill: =RGBA(187, 221, 140, 1)
+                OnSelect: =Select(Parent)
+                Width: =207
+                X: =661
+                Y: =106
+                ZIndex: =7
+
+            Icon7 As icon.Trash:
+                BorderColor: =RGBA(127, 178, 57, 1)
+                Color: =RGBA(127, 178, 57, 1)
+                Height: =38
+                Icon: =Icon.Trash
+                OnSelect: =Select(Parent);Remove(ProductCollect,ThisItem)
+                X: =597
+                Y: =106
+                ZIndex: =8
+
+        Button5 As button:
+            Fill: =RGBA(127, 178, 57, 1)
+            Height: =46
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: |-
+                =SolicituddeCompra.Run(
+                    Concat(Gallery4.AllItems,"<td>" & Product_Name & " </td>
+                              <td>" & Value(TextInput4.Text) & " </td>",
+                        "</tr><tr>")
+                );
+                ForAll(
+                    Gallery4.AllItems,
+                    Patch(
+                        CompraMaterial,
+                        Defaults(CompraMaterial),
+                        {
+                            Code_Product: Product_ID,
+                            'Product Name': Product_Name,
+                            'Order Quantity': Value(TextInput4.Text),
+                            'Order Date': Now()
+                        }
+                    )
+                );
+                Clear(ProductCollect)
+            RadiusBottomLeft: =
+            RadiusBottomRight: =
+            RadiusTopLeft: =
+            RadiusTopRight: =
+            Text: ="Enviar"
+            Width: =417
+            X: =466
+            Y: =656
+            ZIndex: =2
+
+        Button5_1 As button:
+            Fill: =RGBA(127, 178, 57, 1)
+            Height: =46
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Clear(ProductCollect)
+            RadiusBottomLeft: =
+            RadiusBottomRight: =
+            RadiusTopLeft: =
+            RadiusTopRight: =
+            Text: ="Limpiar"
+            Width: =417
+            Y: =656
+            ZIndex: =3
+
+    Icon8 As icon.ThumbsDownFilled:
+        BorderColor: =RGBA(237, 237, 237, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate(HomePage,ScreenTransition.None)
+        Width: =50
+        ZIndex: =20
+

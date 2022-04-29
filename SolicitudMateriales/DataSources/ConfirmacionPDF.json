@@ -1,0 +1,9 @@
+[
+  {
+    "AddinConnectorId": "a2e0b313-59ba-44f1-973b-4407cc9ffbba",
+    "AddinId": "6d1f157d-95bf-406d-b65d-cfd3240f724e",
+    "Name": "ConfirmacionPDF",
+    "ServiceKind": "AddinWadl",
+    "Type": "ServiceInfo"
+  }
+]

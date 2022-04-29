@@ -1,0 +1,38 @@
+ReporteBI As screen:
+
+    Label1_4 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(141, 198, 63, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =64
+        Size: =30
+        Text: ="Reporte de Materiales"
+        Width: =1366
+        ZIndex: =2
+
+    PowerBI1 As powerbi:
+        BorderColor: =RGBA(141, 198, 63, 1)
+        BorderThickness: =1
+        DashboardId: ="65b29944-7b7e-4dbc-8a43-d0af9b0bc4d7"
+        Height: =704
+        TileUrl: |-
+            ="https://app.powerbi.com/embed?dashboardId=65b29944-7b7e-4dbc-8a43-d0af9b0bc4d7&tileId=ecae689c-040f-4626-abf4-dde6db904db2&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVNPVVRILUNFTlRSQUwtVVMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQiLCJlbWJlZEZlYXR1cmVzIjp7Im1vZGVybkVtYmVkIjpmYWxzZX19"
+        Width: =1366
+        WorkspaceId: ="__my-workspace"
+        Y: =64
+        ZIndex: =3
+
+    Icon4_6 As icon.Cancel:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =53
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate(HomePage, ScreenTransition.None)
+        Width: =55
+        X: =7
+        Y: =6
+        ZIndex: =4
+

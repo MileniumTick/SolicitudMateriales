@@ -1,0 +1,168 @@
+InventarioProduct As screen:
+
+    Label1 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(141, 198, 63, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =64
+        Size: =30
+        Text: ="Inventario Bodega"
+        Width: =1366
+        ZIndex: =1
+
+    "Gallery1 As gallery.'BrowseLayout_Vertical_ThreeTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(141, 198, 63, 1)
+        BorderThickness: =3
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =702
+        Items: =SortByColumns(Filter( Products, StartsWith( Product_Name, SearchBox.Text ) || StartsWith( Product_ID , SearchBox.Text )), "Product_Name")
+        Layout: =Layout.Vertical
+        OnSelect: =Navigate(ProductoEspec, ScreenTransition.None)
+        TemplatePadding: =0
+        TemplateSize: =131
+        Width: =1363
+        WrapCount: =2
+        X: =1
+        Y: =64
+        ZIndex: =2
+
+        Image2 As image:
+            Height: =128
+            Image: =ThisItem.Product_Img
+            OnSelect: =Select(Parent)
+            Width: =128
+            X: =16
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+        Subtitle2 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: |-
+                ="Medida: " & ThisItem.Measure.Value
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title2.Width
+            X: =Title2.X
+            Y: =Title2.Y + Title2.Height + 2
+            ZIndex: =2
+
+        Body1 As label:
+            Color: =If(ThisItem.Quantity < ThisItem.Ideal_Stock, Red)
+            Height: =28
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: |-
+                ="Cantidad: " &  ThisItem.Quantity
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Subtitle2.Width
+            X: =Subtitle2.X
+            Y: =Subtitle2.Y + Subtitle2.Height + 4
+            ZIndex: =3
+
+        Separator2 As rectangle:
+            Fill: =RGBA(99, 139, 44, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Title2 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Product_Name
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - Image2.Width - 104
+            X: =Image2.X + Image2.Width + 16
+            Y: =16
+            ZIndex: =6
+
+        Separator2_1 As rectangle:
+            Fill: =RGBA(99, 139, 44, 1)
+            Height: =130
+            OnSelect: =Select(Parent)
+            TabIndex: =1
+            Width: =1
+            X: =680
+            Y: =1
+            ZIndex: =7
+
+        NextArrow2 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =RGBA(99, 139, 44, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =RGBA(255, 255, 255, 1)
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Ver los detalles del elemento"
+            Width: =60
+            X: =609
+            Y: =40
+            ZIndex: =8
+
+    SearchBox As text:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Default: =""
+        Height: =46
+        HintText: ="Buscador de Productos"
+        Width: =217
+        X: =1076
+        Y: =9
+        ZIndex: =3
+
+    Icon1 As icon.Add:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =55
+        Icon: =Icon.Add
+        OnSelect: =NewForm(Form1);Navigate(EditarProduct, ScreenTransition.None); Set(_hide,false)
+        Width: =55
+        X: =1303
+        Y: =2
+        ZIndex: =4
+
+    Icon2 As icon.Search:
+        Color: =RGBA(255, 255, 255, 1)
+        DisplayMode: =DisplayMode.View
+        Height: =55
+        Icon: =Icon.Search
+        Width: =55
+        X: =1012
+        Y: =5
+        ZIndex: =5
+
+    Icon4_5 As icon.Cancel:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =53
+        Icon: =Icon.ChevronLeft
+        OnSelect: |-
+            =Refresh(Products);
+            Navigate(HomePage, ScreenTransition.None)
+        Width: =55
+        X: =8
+        Y: =5
+        ZIndex: =6
+

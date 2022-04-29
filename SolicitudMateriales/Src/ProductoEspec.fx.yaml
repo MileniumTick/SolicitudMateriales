@@ -1,0 +1,385 @@
+ProductoEspec As screen:
+
+    Label1_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(141, 198, 63, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =64
+        Size: =30
+        Text: ="Información de Producto"
+        Width: =1366
+        ZIndex: =1
+
+    Icon4_1 As icon.Cancel:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =53
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate(InventarioProduct, ScreenTransition.None)
+        Width: =55
+        X: =10
+        Y: =5
+        ZIndex: =2
+
+    Icon4_2 As icon.Cancel:
+        Color: =RGBA(255, 255, 255, 1)
+        DisplayMode: =If(DataSourceInfo([@Products], DataSourceInfo.EditPermission), DisplayMode.Edit, DisplayMode.Disabled)
+        Height: =55
+        Icon: =Icon.Edit
+        OnSelect: =EditForm(Form1);Navigate(EditarProduct, ScreenTransition.None); Set(_hide,true)
+        Width: =55
+        X: =1303
+        Y: =5
+        ZIndex: =3
+
+    Icon2_1 As icon.Search:
+        Color: =RGBA(255, 255, 255, 1)
+        DisplayMode: =If(!IsBlank(Gallery1.Selected) && DataSourceInfo([@Products], DataSourceInfo.DeletePermission), DisplayMode.Edit, DisplayMode.Disabled)
+        Height: =55
+        Icon: =Icon.Trash
+        OnSelect: =Remove([@Products], Gallery1.Selected); If (IsEmpty(Errors([@Products], Gallery1.Selected)), Back())
+        Width: =55
+        X: =1229
+        Y: =5
+        ZIndex: =4
+
+    TextInput5 As text:
+        Default: =""
+        Format: =TextFormat.Number
+        Width: =132
+        X: =551
+        Y: =627
+        ZIndex: =5
+
+    Button2 As button:
+        OnSelect: |-
+            =If(IsBlank(TextInput5.Text) || Value(TextInput5.Text) <= 0 , Notify("Error"),  Patch(Products,LookUp(Products,Product_ID=DataCardValue42.Text),{Quantity:Value(DataCardValue39.Text + TextInput5.Text)})); Reset(TextInput5)
+        Text: ="Agregar"
+        X: =736
+        Y: =627
+        ZIndex: =6
+
+    FormViewer1 As formViewer:
+        AcceptsFocus: =false
+        DataSource: =Products
+        Height: =405
+        Item: =Gallery1.Selected
+        Width: =1130
+        X: =158
+        Y: =101
+        ZIndex: =7
+
+        Product_Img_DataCard3 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Product_Img"
+            Default: =ThisItem.Product_Img
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Product_Img"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =201
+            Required: =false
+            Width: =376
+            X: =0
+            Y: =0
+            ZIndex: =13
+
+            Image5 As image:
+                Height: =188
+                Image: =ThisItem.Product_Img
+                Width: =215
+                X: =72
+                Y: =9
+                ZIndex: =3
+
+        Product_Name_DataCard4 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Product_Name"
+            Default: =ThisItem.Product_Name
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Product_Name"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =true
+            Width: =376
+            X: =1
+            Y: =0
+            ZIndex: =13
+
+            DataCardKey37 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                Height: =34
+                Text: ="Nombre del Producto"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue37 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey37.Y + DataCardKey37.Height + 5
+                ZIndex: =2
+
+        Product_Detail_DataCard3 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Product_Detail"
+            Default: =ThisItem.Product_Detail
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Product_Detail"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =376
+            X: =2
+            Y: =0
+            ZIndex: =13
+
+            DataCardKey38 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                Height: =34
+                Text: ="Detalle del Producto"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue38 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey38.Y + DataCardKey38.Height + 5
+                ZIndex: =2
+
+        Product_ID_DataCard5 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Code"
+            Default: =ThisItem.Product_ID
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Product_ID"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =376
+            X: =0
+            Y: =1
+            ZIndex: =13
+
+            DataCardKey42 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                Height: =34
+                Text: ="Codigo del Producto"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue42 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey42.Y + DataCardKey42.Height + 5
+                ZIndex: =2
+
+        Quantity_DataCard4 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Quantity"
+            Default: =ThisItem.Quantity
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Quantity"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =true
+            Width: =376
+            X: =1
+            Y: =1
+            ZIndex: =13
+
+            DataCardKey39 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                Height: =34
+                Text: ="Cantidad"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue39 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey39.Y + DataCardKey39.Height + 5
+                ZIndex: =2
+
+        Measure_DataCard3 As typedDataCard.comboBoxViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Measure"
+            Default: =ThisItem.Measure
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Measure"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue40.Selected
+            Width: =376
+            X: =2
+            Y: =1
+            ZIndex: =13
+
+            DataCardKey40 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                Height: =34
+                Text: ="Medida"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue40 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =43
+                Items: =Choices([@Products].Measure)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices(Products.Measure,DataCardValue40.SearchText)
+                SelectMultiple: =false
+                Width: =172
+                X: =174
+                Y: =43
+                ZIndex: =2
+
+            ErrorMessage14 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue40.Y + DataCardValue40.Height
+                ZIndex: =3
+
+            StarVisible14 As label:
+                Align: =Align.Center
+                Height: =DataCardKey40.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey40.Y
+                ZIndex: =4
+
+        Ideal_Stock_DataCard3 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Ideal_Stock"
+            Default: =ThisItem.Ideal_Stock
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Ideal_Stock"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =true
+            Width: =376
+            X: =0
+            Y: =2
+            ZIndex: =13
+
+            DataCardKey43 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                Height: =34
+                Text: ="Cantidad Ideal"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue43 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey43.Y + DataCardKey43.Height + 5
+                ZIndex: =2
+
+    Label3 As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Size: =20
+        Text: ="Agregar al Inventario"
+        Width: =288
+        X: =575
+        Y: =564
+        ZIndex: =8
+
+    Label6_1 As label:
+        Color: =RGBA(99, 139, 44, 1)
+        FontWeight: =FontWeight.Semibold
+        Text: ="_______________________________________________________________"
+        Width: =500
+        X: =788
+        Y: =501
+        ZIndex: =9
+
+    Label6_2 As label:
+        Color: =RGBA(99, 139, 44, 1)
+        FontWeight: =FontWeight.Semibold
+        Text: ="_______________________________________________________________"
+        Width: =500
+        X: =162
+        Y: =501
+        ZIndex: =10
+

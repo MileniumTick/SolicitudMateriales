@@ -1,0 +1,819 @@
+AdministracionHerramientasTec As screen:
+    OnVisible: =Reset(CambioVista)
+
+    "Gallery2_7 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        Fill: =RGBA(237,237,237,1)
+        Height: =657
+        Items: |-
+            =//Sort(Search(Herramientas;SearchBoxText_2.Text;"Product_Name");Product_Name;Ascending)
+            Search(Herramientas,SearchBoxText_2.Text, "Product_Name")
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =100
+        Width: =683
+        Y: =110
+        ZIndex: =1
+
+        Group5_6 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =6
+
+            Rectangle2_14 As rectangle:
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =91
+                OnSelect: =Select(Parent)
+                Width: =648
+                X: =16
+                Y: =6
+                ZIndex: =1
+
+            Image2_7 As image:
+                Height: =70
+                Image: =ThisItem.Img_Url
+                OnSelect: =Select(Parent)
+                Width: =80
+                X: =40
+                Y: =15
+                ZIndex: =2
+
+            Title2_7 As label:
+                Height: =25
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =18
+                Text: =ThisItem.Product_ID
+                VerticalAlign: =VerticalAlign.Top
+                Width: =359
+                X: =154
+                Y: =21
+                ZIndex: =3
+
+            Subtitle2_4 As label:
+                Height: =25
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: =ThisItem.Product_Name
+                VerticalAlign: =VerticalAlign.Top
+                Width: =460
+                X: =Title2_7.X
+                Y: =53
+                ZIndex: =4
+
+            NextArrow1_3 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: |
+                    =//If(ThisItem.Product_ID in CollectPrestamo.Product_ID; Disabled; Edit)
+                    //If(ThisItem.Quantity< 0 || ThisItem.ID in CollectSol.ID; Disabled; Edit)
+                    Edit
+                Height: =35
+                Icon: =Icon.Add
+                OnSelect: |-
+                    =Select(Parent);
+                    UpdateContext({variabledatos:ThisItem});
+                    UpdateContext({VENTcantidad:true});
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                TabIndex: =0
+                Tooltip: ="Ver los detalles del elemento"
+                Width: =50
+                X: =600
+                Y: =35
+                ZIndex: =5
+
+    "Gallery2_6 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(237,237,237,1)
+        Height: =594
+        Items: =GroupBy(Collectsol,"Product_Name","Producto")
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =Min(96, Self.Height - 60)
+        Width: =683
+        X: =683
+        Y: =54
+        ZIndex: =2
+
+        Title6 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: =ThisItem.Product_Name
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+        NextArrow5 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =RGBA(0, 0, 0, 1)
+            Height: =45
+            Icon: =Icon.Trash
+            OnSelect: =RemoveIf(Collectsol, Product_Name=Title6.Text)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Ver los detalles del elemento"
+            Width: =50
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =2
+
+        Separator7 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =3
+
+        Label7 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Height: =52
+            OnSelect: =Select(Parent)
+            Size: =25
+            Text: =CountRows(ThisItem.Producto)
+            Width: =87
+            X: =524
+            Y: =31
+            ZIndex: =4
+
+        Label14 As label:
+            Height: =52
+            OnSelect: =Select(Parent)
+            Text: ="Cantidad Solicitada"
+            Width: =92
+            X: =432
+            Y: =31
+            ZIndex: =5
+
+    SearchBoxText_2 As text:
+        BorderColor: =RGBA(101, 128, 187, 1)
+        BorderStyle: =Solid
+        BorderThickness: =0
+        Color: =RGBA(47, 41, 43, 1)
+        Default: =""
+        DisabledBorderColor: =RGBA(159, 167, 165, 1)
+        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+        DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
+        Fill: =RGBA(237,237,237,1)
+        FocusedBorderThickness: =3
+        Font: =Font.Lato
+        Height: =56
+        HintText: ="Buscar"
+        HoverBorderColor: =RGBA(101, 128, 187, 1)
+        HoverColor: =RGBA(47, 41, 43, 1)
+        HoverFill: =SearchBoxText_2.Fill
+        OnChange: |-
+            =UpdateContext({search_reset:false})
+        PaddingBottom: =0
+        PaddingLeft: =42
+        PaddingRight: =20
+        PaddingTop: =0
+        PressedBorderColor: =SearchBoxText_2.HoverBorderColor
+        PressedColor: =SearchBoxText_2.Color
+        PressedFill: =SearchBoxText_2.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Reset: =
+        Width: =683
+        Y: =55
+        ZIndex: =3
+
+    TextBox1_9 As label:
+        Color: =RGBA(255,255,255,1)
+        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+        Fill: =RGBA(152, 208, 70, 1)
+        Font: =Font.Lato
+        Height: =54
+        HoverBorderColor: =TextBox1_9.BorderColor
+        HoverColor: =TextBox1_9.Color
+        HoverFill: =TextBox1_9.Fill
+        PressedBorderColor: =TextBox1_9.BorderColor
+        PressedColor: =TextBox1_9.Color
+        PressedFill: =TextBox1_9.Fill
+        Text: ="                        Solicitud de Herramientas"
+        VerticalAlign: =Middle
+        Width: =1366
+        ZIndex: =4
+
+    Rectangle2_15 As rectangle:
+        BorderColor: =
+        Fill: =RGBA(237,237,237,1)
+        Height: =130
+        OnSelect: =
+        Width: =683
+        X: =683
+        Y: =637
+        ZIndex: =5
+
+    TextBox1_14 As label:
+        Align: =Center
+        Color: =RGBA(255,255,255,1)
+        DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+        Fill: =RGBA(152, 208, 70, 1)
+        Font: =Font.Lato
+        Height: =37
+        HoverBorderColor: =TextBox1_14.BorderColor
+        HoverColor: =TextBox1_14.Color
+        HoverFill: =TextBox1_14.Fill
+        PressedBorderColor: =TextBox1_14.BorderColor
+        PressedColor: =TextBox1_14.Color
+        PressedFill: =TextBox1_14.Fill
+        Text: =
+        VerticalAlign: =Middle
+        Width: =683
+        X: =683
+        Y: =648
+        ZIndex: =6
+
+    Button5_6 As button:
+        DisplayMode: =If(IsEmpty(Collectsol),Disabled,Edit)
+        OnSelect: |-
+            =Clear(CCS);
+            UpdateContext(
+                {
+                    usuariotemp: LookUp(
+                        Managers,
+                        Name = User().FullName
+                    )
+                }
+            );
+            ForAll(
+                Collectsol,
+                Collect(
+                    CCS,
+                    {
+                        ID: ThisRecord.ID,
+                        Product_ID: ThisRecord.Product_ID,
+                        Product_Name: ThisRecord.Product_Name,
+                        Img_Url: ThisRecord.Img_Url,
+                        Cantidad: 1
+                    }
+                )
+            );
+            UpdateContext({showAsig: true})
+            //Clear(CCS);;ForAll(RenameColumns(CCS;"ID";"NID");Patch([@Prestamos];Defaults([@Prestamos]);{Estado:"Pendiente";Detalle:"Solicitud";Cantidad:1;NSerie:"1";Manager:User().FullName;ID_Manager:{Id:Value(UsuariosdeOffice365.MyProfile().Id);Value:Value(UsuariosdeOffice365.MyProfile().Id)};ID_Herramienta:{Id:NID;Value:NID}}))
+        Text: ="Procesar"
+        X: =848
+        Y: =712
+        ZIndex: =7
+
+    Button3_22 As button:
+        Fill: =RGBA(255, 0, 0, 1)
+        HoverFill: =ColorFade(Self.BorderColor, 20%)
+        OnSelect: =Clear(Collectsol)
+        Text: ="Limpiar"
+        X: =1039
+        Y: =712
+        ZIndex: =8
+
+    Container7_2 As groupContainer:
+        Height: =768
+        Visible: =showAsig
+        Width: =1366
+        ZIndex: =9
+
+        Rectangle10_2 As rectangle:
+            Fill: =RGBA(0, 0, 0, 0.5)
+            Height: =768
+            Width: =1366
+            ZIndex: =1
+
+        Rectangle12_2 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =710
+            Width: =1317
+            X: =24
+            Y: =30
+            ZIndex: =2
+
+        "Gallery2_5 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            Fill: =RGBA(237,237,237,1)
+            Height: =573
+            Items: =CCS
+            Layout: =Layout.Vertical
+            TemplatePadding: =0
+            TemplateSize: =101
+            Width: =812
+            X: =276
+            Y: =59
+            ZIndex: =3
+
+            Group5_4 As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =6
+
+                Rectangle2_12 As rectangle:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =95
+                    OnSelect: =Select(Parent)
+                    Width: =789
+                    X: =12
+                    Y: =6
+                    ZIndex: =1
+
+                Image2_5 As image:
+                    Height: =58
+                    Image: =ThisItem.Img_Url
+                    OnSelect: =Select(Parent)
+                    Width: =95
+                    X: =23
+                    Y: =23
+                    ZIndex: =2
+
+                Title2_5 As label:
+                    Height: =29
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =16
+                    Text: =ThisItem.Product_ID
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =529
+                    X: =142
+                    Y: =10
+                    ZIndex: =3
+
+                Subtitle2_8 As label:
+                    Height: =27
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =14
+                    Text: =ThisItem.Product_Name
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =529
+                    X: =141
+                    Y: =39
+                    ZIndex: =4
+
+            Subtitle2_52 As label:
+                Height: =21
+                OnSelect: =
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: |-
+                    ="Cantidad: " & ThisItem.Cantidad
+                VerticalAlign: =VerticalAlign.Top
+                Width: =124
+                X: =141
+                Y: =68
+                ZIndex: =8
+
+        Button3_3 As button:
+            OnSelect: |-
+                =UpdateContext({showAsig:false})
+            Text: ="Cancelar"
+            X: =707
+            Y: =671
+            ZIndex: =4
+
+        Button1_23 As button:
+            DisplayMode: =//If(IsBlank(DataCardValue66) Or IsBlank(DataCardValue70) Or IsBlank(DataCardValue74); Disabled; Edit)
+            Fill: =RGBA(141, 198, 63, 1)
+            HoverFill: =ColorFade(Self.Fill, -15%)
+            OnSelect: |
+                =ForAll(
+                    RenameColumns(
+                        CCS,
+                        "ID",
+                        "NID"
+                    ),
+                    Patch(
+                        [@Prestamos],
+                        Defaults([@Prestamos]),
+                        {
+                            Cantidad: ThisRecord.Cantidad,
+                            Manager: usuariotemp.Name,
+                            Estado: "Pendiente",
+                            Detalle: "Solicitud",
+                            NSerie: "",
+                            ID_Manager: {
+                                Id: usuariotemp.ID,
+                                Value: usuariotemp.ID
+                            },
+                            ID_Herramienta: {
+                                Id: NID,
+                                Value: NID
+                            }
+                        }
+                    )
+                );
+                UpdateContext({showAsig: false});
+                Clear(Collectsol);
+            Text: ="Aceptar"
+            X: =497
+            Y: =671
+            ZIndex: =5
+
+    Icon14_1 As icon.Home:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =55
+        Icon: =Icon.Home
+        OnSelect: =Navigate(MenuHerramientas)
+        ZIndex: =16
+
+    ventanacantidad_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =18
+
+        Label2_9 As label:
+            Fill: =RGBA(230, 230, 230, 0.9)
+            Height: =680
+            Text: =""
+            Visible: =VENTcantidad
+            Width: =646
+            X: =396
+            Y: =76
+            ZIndex: =10
+
+        Label6_15 As label:
+            Align: =Align.Center
+            Height: =118
+            Size: =30
+            Text: ="Seleccione la cantidad requerida"
+            Visible: =VENTcantidad
+            Width: =646
+            X: =396
+            Y: =110
+            ZIndex: =11
+
+        Label6_13 As label:
+            Height: =118
+            Size: =25
+            Text: ="Cantidad"
+            Visible: =VENTcantidad
+            Width: =646
+            X: =396
+            Y: =352
+            ZIndex: =12
+
+        TXTcant_2 As text:
+            Align: =Align.Center
+            Default: ="1"
+            FontWeight: =FontWeight.Bold
+            Height: =118
+            Size: =30
+            Visible: =VENTcantidad
+            Width: =284
+            X: =730
+            Y: =352
+            ZIndex: =13
+
+        Icon12_5 As icon.Check:
+            Color: =RGBA(54, 176, 75, 1)
+            Height: =88
+            Icon: =Icon.Check
+            OnSelect: |-
+                =If(
+                    Value(TXTcant_2.Text) = 1,
+                    Collect(
+                        Collectsol,
+                        variabledatos
+                    ),
+                    ForAll(
+                        Sequence(Value(TXTcant_2.Text)),
+                        Collect(
+                            Collectsol,
+                            variabledatos
+                        )
+                    )
+                );
+                UpdateContext({VENTcantidad: false});
+                Reset(TXTcant_2);
+            Visible: =VENTcantidad
+            Width: =98
+            X: =492
+            Y: =608
+            ZIndex: =14
+
+        Icon12_4 As icon.Check:
+            Color: =RGBA(255, 0, 0, 1)
+            Height: =88
+            Icon: =Icon.CancelBadge
+            OnSelect: |+
+                =UpdateContext({VENTcantidad:false});
+                Reset(TXTcant_2);
+                
+            Visible: =VENTcantidad
+            Width: =98
+            X: =823
+            Y: =608
+            ZIndex: =15
+
+    Devolucion As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =25
+
+        FondoSolDev As label:
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =713
+            Text: =""
+            Visible: =mostrarDevolucion
+            Width: =1366
+            Y: =55
+            ZIndex: =17
+
+        "GalHerraAsignadas As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            Height: =538
+            Items: |-
+                =Filter(
+                    Filter(
+                        Filter(
+                            Prestamos,
+                            Estado = "Confirmado",
+                            Fecha_Entrega = Blank()
+                        ),
+                        Manager = User().FullName
+                    ),
+                    StartsWith(
+                        Upper(ID_Herramienta.Value),
+                        Upper(Buscadevol.Text)
+                    ) || StartsWith(
+                        Upper(NSerie),
+                        Upper(Buscadevol.Text)
+                    )
+                )
+            Layout: =Layout.Vertical
+            TemplatePadding: =0
+            TemplateSize: =Min(160, Self.Height - 60)
+            Visible: =mostrarDevolucion
+            Width: =590
+            Y: =228
+            ZIndex: =18
+
+            Image7 As image:
+                Height: =128
+                Image: =LookUp( Herramientas, ID=ThisItem.ID_Herramienta.Id,Product_Img)
+                OnSelect: =Select(Parent)
+                Width: =128
+                X: =16
+                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                ZIndex: =1
+
+            Title3 As label:
+                Height: =66
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.ID_Herramienta.Value
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - Image7.Width - 104
+                X: =Image7.X + Image7.Width + 24
+                Y: =44
+                ZIndex: =2
+
+            Subtitle4 As label:
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: |-
+                    ="Numero de Serie: "&ThisItem.NSerie
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Title3.Width
+                X: =168
+                Y: =112
+                ZIndex: =3
+
+            NextArrow3 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                DisplayMode: =If(ThisItem.ID exactin HerraDevolver.ID,DisplayMode.Disabled,DisplayMode.Edit)
+                Height: =60
+                Icon: =Icon.ChevronRight
+                OnSelect: |-
+                    =Select(Parent);
+                    Collect(HerraDevolver,ThisItem);
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                TabIndex: =0
+                Tooltip: ="Ver los detalles del elemento"
+                Width: =60
+                X: =Parent.TemplateWidth - Self.Width - 5
+                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                ZIndex: =4
+
+            Separator4 As rectangle:
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =5
+
+        Buscadevol As text:
+            Default: =""
+            Height: =76
+            HintText: ="Buscar por Herramienta o Numero de Serie"
+            Tooltip: ="Buscar por Herramienta o Numero de Serie"
+            Visible: =mostrarDevolucion
+            Width: =590
+            Y: =55
+            ZIndex: =19
+
+        Label19 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Height: =69
+            Size: =20
+            Text: ="Herramientas Asignadas"
+            Visible: =mostrarDevolucion
+            Width: =590
+            Y: =131
+            ZIndex: =20
+
+        Label19_1 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Height: =69
+            Size: =20
+            Text: ="Herramientas para Devolver"
+            Visible: =mostrarDevolucion
+            Width: =776
+            X: =590
+            Y: =159
+            ZIndex: =21
+
+        "GalHerraDevol As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver4.0'":
+            Height: =538
+            Items: =HerraDevolver
+            Layout: =Layout.Vertical
+            TemplatePadding: =0
+            TemplateSize: =Min(104, Self.Height - 60)
+            Visible: =mostrarDevolucion
+            Width: =776
+            X: =590
+            Y: =228
+            ZIndex: =22
+
+            Title8 As label:
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.ID_Herramienta.Value
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - 104
+                X: =32
+                Y: =16
+                ZIndex: =1
+
+            Subtitle7 As label:
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: |-
+                    ="Numero de Serie: " &ThisItem.NSerie
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - 104
+                X: =32
+                Y: =Title8.Y + Title8.Height + 4
+                ZIndex: =2
+
+            NextArrow6 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                Height: =60
+                Icon: =Icon.Trash
+                OnSelect: =Remove(HerraDevolver,ThisItem);
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                TabIndex: =0
+                Tooltip: ="Ver los detalles del elemento"
+                Width: =60
+                X: =Parent.TemplateWidth - Self.Width - 5
+                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                ZIndex: =3
+
+            Separator8 As rectangle:
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =4
+
+        Button4 As button:
+            Height: =61
+            Text: ="Solicitar Devolución"
+            Visible: =mostrarDevolucion
+            Width: =250
+            X: =1087
+            Y: =70
+            ZIndex: =23
+
+    ButtonSol As button:
+        DisabledBorderColor: =RGBA(203, 102, 102, 1)
+        DisabledFill: =RGBA(39, 113, 194, 1)
+        DisplayMode: =verChecksol
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =25
+        OnSelect: |-
+            =UpdateContext({verChecksol:DisplayMode.Disabled,verCheckdev:DisplayMode.Edit,verCheckacep:DisplayMode.Edit});
+            UpdateContext({mostrarDevolucion:false,mostraraceptacion:false})
+        Text: ="Solicitud"
+        Width: =190
+        X: =654
+        Y: =17
+        ZIndex: =28
+
+    ButtonSol_1 As button:
+        DisabledBorderColor: =RGBA(203, 102, 102, 1)
+        DisabledFill: =RGBA(39, 113, 194, 1)
+        DisplayMode: =verCheckdev
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =25
+        OnSelect: |-
+            =UpdateContext(
+                {
+                    verChecksol: DisplayMode.Edit,
+                    verCheckdev: DisplayMode.Disabled,
+                    verCheckacep: DisplayMode.Edit
+                }
+            );
+            UpdateContext(
+                {
+                    mostrarDevolucion: true,
+                    mostraraceptacion: false
+                }
+            )
+        Text: ="Devolución"
+        Width: =190
+        X: =886
+        Y: =17
+        ZIndex: =29
+
+    ButtonSol_2 As button:
+        DisabledBorderColor: =RGBA(203, 102, 102, 1)
+        DisabledFill: =RGBA(39, 113, 194, 1)
+        DisplayMode: =verCheckacep
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =25
+        OnSelect: |-
+            =UpdateContext({verChecksol:DisplayMode.Edit,verCheckdev:DisplayMode.Edit,verCheckacep:DisplayMode.Disabled});
+            UpdateContext({mostrarDevolucion:false,mostraraceptacion:true})
+        Text: ="Aceptacion"
+        Width: =190
+        X: =1133
+        Y: =17
+        ZIndex: =30
+
+    FondoSolAcep As label:
+        Fill: =RGBA(241, 244, 249, 1)
+        Height: =713
+        Text: =""
+        Visible: =mostraraceptacion
+        Width: =1366
+        Y: =55
+        ZIndex: =31
+

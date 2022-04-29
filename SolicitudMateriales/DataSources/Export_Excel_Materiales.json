@@ -1,0 +1,9 @@
+[
+  {
+    "AddinConnectorId": "eafdf7eb-400a-4b55-b8a3-1232834ac26b",
+    "AddinId": "6d1f157d-95bf-406d-b65d-cfd3240f724e",
+    "Name": "Export_Excel_Materiales",
+    "ServiceKind": "AddinWadl",
+    "Type": "ServiceInfo"
+  }
+]

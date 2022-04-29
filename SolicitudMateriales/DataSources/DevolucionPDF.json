@@ -1,0 +1,9 @@
+[
+  {
+    "AddinConnectorId": "a18c0c0f-f867-40d9-8217-03e4c61fdb01",
+    "AddinId": "6d1f157d-95bf-406d-b65d-cfd3240f724e",
+    "Name": "DevolucionPDF",
+    "ServiceKind": "AddinWadl",
+    "Type": "ServiceInfo"
+  }
+]

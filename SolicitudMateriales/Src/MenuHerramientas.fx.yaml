@@ -1,0 +1,54 @@
+MenuHerramientas As screen:
+
+    Label16 As label:
+        Align: =Align.Center
+        Height: =77
+        Size: =30
+        Text: ="Pantalla de Menu Herramientas de pruebas"
+        Width: =1002
+        X: =364
+        Y: =40
+        ZIndex: =1
+
+    Image9 As image:
+        Height: =327
+        Image: ='43217411_1860843580699041_820856928455360512_n'
+        Width: =700
+        X: =653
+        Y: =117
+        ZIndex: =2
+
+    Button6 As button:
+        Height: =88
+        OnSelect: =Navigate(AdministracionHerramientasTec)
+        Text: ="Solicitude Del Tecnico"
+        Width: =332
+        X: =116
+        Y: =272
+        ZIndex: =3
+
+    Button6_1 As button:
+        Height: =88
+        OnSelect: =Navigate(AsignacionesXTecnico)
+        Text: ="Ver Asignaciones x Tecnico y recepcion"
+        Width: =332
+        X: =116
+        Y: =397
+        ZIndex: =4
+
+    Button6_2 As button:
+        Height: =88
+        OnSelect: =Navigate(AsignacionDirectaHerramientas)
+        Text: ="Hacer Asignacion Directa"
+        Width: =332
+        X: =116
+        Y: =147
+        ZIndex: =5
+
+    Icon14 As icon.Home:
+        Icon: =Icon.Home
+        OnSelect: =Navigate(MenuHerramientas)
+        X: =60
+        Y: =60
+        ZIndex: =6
+

@@ -1,0 +1,9 @@
+[
+  {
+    "AddinConnectorId": "10e7aed9-3491-458f-a4e4-3d976f3d5fd8",
+    "AddinId": "6d1f157d-95bf-406d-b65d-cfd3240f724e",
+    "Name": "ConfirmacionHerramientas",
+    "ServiceKind": "AddinWadl",
+    "Type": "ServiceInfo"
+  }
+]

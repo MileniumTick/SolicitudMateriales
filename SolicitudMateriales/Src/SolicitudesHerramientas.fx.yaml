@@ -1,0 +1,979 @@
+SolicitudesHerramientas As screen:
+
+    Label1_31 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(141, 198, 63, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =64
+        Size: =30
+        Text: =
+        Width: =498
+        ZIndex: =1
+
+    Label1_34 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(141, 198, 63, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =64
+        Size: =16
+        Text: |-
+            ="Solicitud de Herramientas: " & var_CE
+        Width: =770
+        X: =596
+        ZIndex: =2
+
+    Icon2_20 As icon.Search:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =34
+        Icon: =Icon.Search
+        Width: =33
+        X: =243
+        Y: =10
+        ZIndex: =3
+
+    SearchBox_18 As text:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Default: =""
+        Height: =31
+        HintText: ="Buscador de CE"
+        Width: =203
+        X: =281
+        Y: =10
+        ZIndex: =4
+
+    "Product_Gallery_17 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(141, 198, 63, 1)
+        BorderThickness: =3
+        Height: =702
+        Items: =GroupBy(Filter([@Prestamos],Detalle="Solicitud", Estado = "Pendiente"),"Manager","DATA_S")
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =112
+        Width: =495
+        X: =1
+        Y: =64
+        ZIndex: =5
+
+        Separator1_17 As rectangle:
+            BorderColor: =RGBA(99, 139, 44, 1)
+            Fill: =RGBA(99, 139, 44, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =2
+
+        Subtitle2_16 As label:
+            Align: =Align.Center
+            Height: =25
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: ="Herramientas Solicitadas (" & CountRows(Filter(ThisItem.DATA_S, "Solicitud" in Detalle && "Pendiente" in Estado))&")"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =324
+            X: =61
+            Y: =54
+            ZIndex: =5
+
+        Title1_24 As label:
+            Height: =42
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: |-
+                ="Lider: " & ThisItem.Manager
+            VerticalAlign: =VerticalAlign.Top
+            Width: =395
+            X: =32
+            Y: =12
+            ZIndex: =7
+
+        NextArrow2_18 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =RGBA(99, 139, 44, 1)
+            DisplayMode: =
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =RGBA(255, 255, 255, 1)
+            Height: =44
+            Icon: =Icon.ChevronRight
+            OnSelect: |
+                =Set(var_CE,ThisItem.Manager);
+                Set(showGallery,true);
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            TabIndex: =0
+            Tooltip: ="Ver los detalles del elemento"
+            Width: =49
+            X: =427
+            Y: =35
+            ZIndex: =8
+
+    Icon4_23 As icon.Cancel:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =53
+        Icon: =Icon.ChevronLeft
+        OnSelect: |-
+            =Set(var_CE," ");
+            Refresh(Ordenes);
+            Set(showGallery,false);
+            Navigate(HomePage, ScreenTransition.None);
+                Reset(TextInput1_2);
+                Reset(SearchBox_7);
+        Width: =55
+        X: =7
+        Y: =6
+        ZIndex: =6
+
+    "Order_Gallery_14 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(141, 198, 63, 1)
+        BorderThickness: =3
+        Height: =555
+        Items: |
+            =Sort(Filter([@Prestamos],var_CE = Manager,Estado ="Pendiente",Detalle="Solicitud"),ID_Herramienta.Value,Ascending)
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =80
+        Visible: =showGallery
+        Width: =768
+        X: =597
+        Y: =64
+        ZIndex: =7
+
+        Title1_45 As label:
+            Height: =27
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =15
+            Text: =ThisItem.ID_Herramienta.Value
+            VerticalAlign: =VerticalAlign.Top
+            Width: =469
+            X: =30
+            Y: =11
+            ZIndex: =1
+
+        Subtitle1_12 As label:
+            Height: =28
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Cantidad
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =false
+            Width: =130
+            X: =318
+            Y: =52
+            ZIndex: =2
+
+        NextArrow1_16 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =RGBA(99, 139, 44, 1)
+            Height: =60
+            Icon: =Icon.Trash
+            OnSelect: =//Remove([@Ordenes]; Order_Gallery_14.Selected);; IsEmpty(Errors([@Ordenes]; Order_Gallery_14.Selected))
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Ver los detalles del elemento"
+            Width: =60
+            X: =680
+            Y: =11
+            ZIndex: =3
+
+        Separator1_32 As rectangle:
+            BorderColor: =RGBA(99, 139, 44, 1)
+            Fill: =RGBA(99, 139, 44, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =4
+
+        Subtitle2_62 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =23
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =15
+            Text: |-
+                ="Cantidad Solicitada: "& ThisItem.Cantidad
+            VerticalAlign: =VerticalAlign.Top
+            Width: =306
+            X: =30
+            Y: =38
+            ZIndex: =5
+
+        Title1_46 As label:
+            Height: =41
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =15
+            Text: |-
+                ="Cantidad Entregada: "
+            VerticalAlign: =VerticalAlign.Top
+            Width: =271
+            X: =318
+            Y: =38
+            ZIndex: =6
+
+        TextInput3_13 As text:
+            BorderColor: =//If(LookUp(Products;ThisItem.Product_ID = Product_ID; Quantity) < ThisItem.Quantity;Red)
+            BorderThickness: =3
+            Default: =//If(LookUp(Products;ThisItem.Product_ID = Product_ID; Quantity) < ThisItem.Quantity;0;ThisItem.Quantity)
+            FocusedBorderColor: =//If(LookUp(Products;ThisItem.Product_ID = Product_ID; Quantity) < ThisItem.Quantity;Red)
+            FontWeight: =FontWeight.Semibold
+            Format: =TextFormat.Number
+            Height: =43
+            OnChange: =
+            OnSelect: =
+            Size: =15
+            Width: =75
+            X: =525
+            Y: =28
+            ZIndex: =7
+
+    Subtitle2_64 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =22
+        OnSelect: =
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =16
+        Text: |-
+            ="Semana:"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =136
+        X: =598
+        Y: =705
+        ZIndex: =8
+
+    TextInput1_7 As text:
+        Default: =""
+        FontWeight: =FontWeight.Semibold
+        Format: =TextFormat.Number
+        Size: =16
+        Width: =49
+        X: =704
+        Y: =696
+        ZIndex: =9
+
+    Button2_7 As button:
+        DisplayMode: =If(IsBlank(TextInput1_7), Disabled,Edit)
+        FontWeight: =FontWeight.Bold
+        OnSelect: |-
+            =UpdateContext({showDialog:true})
+        Text: ="Procesar"
+        X: =1145
+        Y: =674
+        ZIndex: =10
+
+    Subtitle2_63 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =29
+        OnSelect: =
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =16
+        Text: |-
+            ="Encargado:"
+        VerticalAlign: =VerticalAlign.Top
+        Width: =138
+        X: =596
+        Y: =651
+        ZIndex: =11
+
+    Label2_12 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =39
+        Size: =15
+        Text: =LookUp(Managers,Name = User().FullName, Tour.Value) 
+        Visible: =false
+        Width: =114
+        X: =514
+        Y: =727
+        ZIndex: =12
+
+    Label8_6 As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =37
+        Size: =16
+        Text: |-
+            =//LookUp(Ordenes;Cod_CE = var_CE; Manager )
+            Last(Filter(Ordenes, Cod_CE = var_CE)).Manager 
+        Width: =322
+        X: =715
+        Y: =645
+        ZIndex: =13
+
+    Subtitle2_65 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =22
+        OnSelect: =
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =16
+        Text: |-
+            ="Centro Educativo: " & var_CE
+        VerticalAlign: =VerticalAlign.Top
+        Width: =271
+        X: =804
+        Y: =705
+        ZIndex: =14
+
+    Icon4_24 As icon.Cancel:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =53
+        Icon: =Icon.Add
+        OnSelect: |-
+            =UpdateContext({showAdd:true})
+        Visible: =false
+        Width: =55
+        X: =610
+        Y: =6
+        ZIndex: =15
+
+    Container2_9 As groupContainer:
+        Height: =768
+        Visible: =showDialog
+        Width: =1366
+        ZIndex: =16
+
+        Rectangle2_22 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =768
+            Width: =1366
+            ZIndex: =1
+
+        HtmlText1_10 As htmlViewer:
+            DisplayMode: =DisplayMode.View
+            Height: =645
+            HtmlText: |-
+                =   "<html>
+                <head>
+                </head>
+                <body>
+                
+                <h4 align='center'>" & "Confirmacion de Solicitud de Materiales" &  "</h4>
+                <h4 style='text-align: center; '>" & Label8_6.Text & " - " & Label2_12.Text & " - " & "Semana " & TextInput1_7.Text &  " - CE: " & var_CE & "</h4>
+                
+                <h4 align='center'>" & Today() &  "</h4>
+                
+                <table style='font-family: Arial, Helvetica, sans-serif;
+                  border-collapse: collapse;
+                  width: 100%; 
+                  text-align: center; '>
+                
+                  <tr>
+                    <th style='border: 1px solid black;
+                  padding: 8px;   padding-top: 12px;
+                  padding-bottom: 12px;
+                  text-align: center;
+                  background-color: #8ec63f;
+                  color: white;'  >Producto</th>
+                    <th style='border: 1px solid black;
+                  padding: 8px;   padding-top: 12px;
+                  padding-bottom: 12px;
+                  text-align: center;
+                  background-color: #8ec63f;
+                  color: white;'   >Medida</th>
+                    <th style='border: 1px solid black;
+                  padding: 8px;   padding-top: 12px;
+                  padding-bottom: 12px;
+                  text-align: center;
+                  background-color: #8ec63f;
+                  color: white;'  >Codigo</th>
+                      <th style='border: 1px solid black;
+                  padding: 8px;   padding-top: 12px;
+                  padding-bottom: 12px;
+                  text-align: center;
+                  background-color: #8ec63f;
+                  color: white;'  >Cantidad</th>
+                  </tr>
+                
+                 " &Concat(
+                    Order_Gallery_14.AllItems,
+                    "  
+                  <tr>
+                    <td style=' border: 1px solid black;
+                  padding: 8px; ' >" & Product_Name & "</td>
+                    <td style=' border: 1px solid black;
+                  padding: 8px; ' >" & Product_Measure & "</td>
+                    <td style=' border: 1px solid black;
+                  padding: 8px; ' >" & Product_ID & "</td>
+                      <td style=' border: 1px solid black;
+                  padding: 8px; ' >" & Value(TextInput3_13.Text) & "</td>
+                  </tr>
+                   "
+                ) & " 
+                
+                
+                </table>
+                
+                </body>
+                </html>
+                "
+            Size: =15
+            Width: =1227
+            X: =68
+            ZIndex: =2
+
+        Button3_24 As button:
+            Fill: =RGBA(255, 0, 0, 1)
+            HoverFill: =ColorFade(Self.BorderColor, 20%)
+            OnSelect: |-
+                =UpdateContext({showDialog:false})
+            Text: ="Cancelar"
+            X: =732
+            Y: =668
+            ZIndex: =4
+
+        Button1_18 As button:
+            DisplayMode: =
+            Fill: =RGBA(141, 198, 63, 1)
+            HoverFill: =ColorFade(Self.Fill, -15%)
+            OnSelect: |-
+                =If(
+                    IsBlank(HtmlText1_10),
+                    Notify(
+                        "Error no se puede procesar su solicitud",
+                        NotificationType.Error
+                    ),
+                    Set(
+                        _html,
+                        HtmlText1_10.HtmlText
+                    );
+                    Set(
+                        Correo,
+                        LookUp(
+                            Managers,
+                            Name = Label8_6.Text,
+                            Email
+                        )
+                    )
+                );
+                ConfirmacionPDF.Run(
+                    _html,
+                    Correo
+                );
+                ClearCollect(
+                    Confirmacion,
+                    Order_Gallery_12.AllItems
+                );
+                ForAll(
+                    RenameColumns(
+                        Confirmacion,
+                        "ID",
+                        "NID"
+                    ),
+                    UpdateIf(
+                        Confirmacion,
+                        ID = NID,
+                        {Quantity: Value(TextInput3_5.Text)}
+                    )
+                );
+                ForAll(
+                    RenameColumns(
+                        Confirmacion,
+                        "Product_ID",
+                        "EProduct_ID",
+                        "Quantity",
+                        "NQuantity"
+                    ),
+                    UpdateIf(
+                        [@Products],
+                        Product_ID = EProduct_ID,
+                        {Quantity: Quantity - NQuantity}
+                    )
+                );
+                ForAll(
+                    RenameColumns(
+                        Confirmacion,
+                        "ID",
+                        "NID",
+                        "Quantity",
+                        "NQuantity"
+                    ),
+                    UpdateIf(
+                        [@Ordenes],
+                        ID = NID,
+                        {
+                            Week: "Semana " & TextInput1_2.Text,
+                            Quantity: NQuantity,
+                            Status: "Confirmado"
+                        }
+                    )
+                );
+                Reset(TextInput1_2);
+                Reset(SearchBox_7);
+                UpdateContext({showDialog: false});
+                Navigate(
+                    HomePage,
+                    ScreenTransition.None
+                );
+                Notify(
+                    "La solicitud fue procesada con exito",
+                    NotificationType.Success
+                )
+            Text: ="Enviar"
+            X: =505
+            Y: =668
+            ZIndex: =5
+
+    Container6_2 As groupContainer:
+        Height: =768
+        Visible: =showAdd
+        Width: =1366
+        ZIndex: =17
+
+        Rectangle6_2 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =768
+            Width: =1366
+            ZIndex: =1
+
+        Label1_32 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(255, 255, 255, 1)
+            DisabledColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(141, 198, 63, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =64
+            Size: =30
+            Text: =
+            Width: =670
+            ZIndex: =2
+
+        SearchBox_17 As text:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Default: =""
+            Height: =46
+            HintText: ="Buscador de Productos"
+            Width: =217
+            X: =438
+            Y: =10
+            ZIndex: =3
+
+        "Product_Gallery_16 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            BorderColor: =RGBA(141, 198, 63, 1)
+            BorderThickness: =3
+            Height: =702
+            Items: =SortByColumns(Filter( Products, StartsWith( Product_Name, SearchBox_17.Text ) || StartsWith( Product_ID , SearchBox_17.Text )), "Product_Name")
+            Layout: =Layout.Vertical
+            TemplatePadding: =0
+            TemplateSize: =112
+            Width: =667
+            X: =1
+            Y: =64
+            ZIndex: =4
+
+            Image1_11 As image:
+                Height: =80
+                Image: =ThisItem.Product_Img
+                OnSelect: =Select(Parent)
+                Width: =80
+                X: =36
+                Y: =17
+                ZIndex: =1
+
+            Separator1_30 As rectangle:
+                BorderColor: =RGBA(99, 139, 44, 1)
+                Fill: =RGBA(99, 139, 44, 1)
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =2
+
+            lblProduct_ID_21 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =41
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: |-
+                    ="Codigo: " & ThisItem.Product_ID
+                VerticalAlign: =VerticalAlign.Top
+                Width: =191
+                X: =382
+                Y: =71
+                ZIndex: =3
+
+            Body1_14 As label:
+                Color: =If(ThisItem.Quantity < ThisItem.Ideal_Stock, Red)
+                FontWeight: =FontWeight.Semibold
+                Height: =24
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: |-
+                    ="Cantidad: " &  ThisItem.Quantity
+                VerticalAlign: =VerticalAlign.Top
+                Width: =227
+                X: =148
+                Y: =73
+                ZIndex: =4
+
+            Subtitle2_58 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =29
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: |-
+                    ="Medida: " & ThisItem.Measure.Value
+                VerticalAlign: =VerticalAlign.Top
+                Width: =318
+                X: =148
+                Y: =42
+                ZIndex: =5
+
+            NextArrow2_17 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(99, 139, 44, 1)
+                DisplayMode: =
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(255, 255, 255, 1)
+                Height: =60
+                Icon: =Icon.Add
+                OnSelect: |
+                    =Collect(
+                        CollectAdd,
+                        ThisItem
+                    );
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                TabIndex: =0
+                Tooltip: ="Ver los detalles del elemento"
+                Width: =60
+                X: =573
+                Y: =26
+                ZIndex: =6
+
+            Title1_42 As label:
+                Height: =Self.Size * 1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: =ThisItem.Product_Name
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - Image1_11.Width - 104
+                X: =148
+                Y: =12
+                ZIndex: =7
+
+        Label1_33 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(255, 255, 255, 1)
+            DisabledColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(141, 198, 63, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =64
+            Size: =24
+            Text: ="Agregar al Centro Educativo "& var_CE
+            Width: =670
+            X: =696
+            ZIndex: =5
+
+        "Order_Gallery_10 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            BorderColor: =RGBA(141, 198, 63, 1)
+            BorderThickness: =3
+            Height: =555
+            Items: =CollectAdd
+            Layout: =Layout.Vertical
+            TemplatePadding: =0
+            TemplateSize: =94
+            Width: =667
+            X: =697
+            Y: =64
+            ZIndex: =6
+
+            Title1_43 As label:
+                Height: =34
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: =ThisItem.Product_Name
+                VerticalAlign: =VerticalAlign.Top
+                Width: =504
+                X: =30
+                Y: =11
+                ZIndex: =2
+
+            Subtitle1_19 As label:
+                Height: =28
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.Quantity
+                VerticalAlign: =VerticalAlign.Top
+                Visible: =false
+                Width: =130
+                X: =318
+                Y: =66
+                ZIndex: =3
+
+            NextArrow1_15 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Color: =RGBA(99, 139, 44, 1)
+                Height: =60
+                Icon: =Icon.Trash
+                OnSelect: =Remove(CollectAdd, ThisItem)
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                TabIndex: =0
+                Tooltip: ="Ver los detalles del elemento"
+                Width: =60
+                X: =600
+                Y: =19
+                ZIndex: =4
+
+            Separator1_31 As rectangle:
+                BorderColor: =RGBA(99, 139, 44, 1)
+                Fill: =RGBA(99, 139, 44, 1)
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =5
+
+            TextInput3_12 As text:
+                BorderColor: =If(IsBlank(TextInput3_12.Text) || Value(TextInput3_12.Text) <= 0 , Red)
+                BorderThickness: =3
+                Default: =""
+                Format: =TextFormat.Number
+                Height: =43
+                OnChange: =
+                OnSelect: =If(Value(TextInput3_12.Text) > Value(Subtitle1_19.Text),Notify("Error"))
+                Width: =75
+                X: =525
+                Y: =28
+                ZIndex: =7
+
+            Subtitle2_59 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =31
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: |-
+                    ="Medida: " & ThisItem.Measure.Value
+                VerticalAlign: =VerticalAlign.Top
+                Width: =306
+                X: =30
+                Y: =38
+                ZIndex: =8
+
+            lblProduct_ID_22 As label:
+                Height: =27
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: |-
+                    ="Codigo: " & ThisItem.Product_ID
+                VerticalAlign: =VerticalAlign.Top
+                Width: =191
+                X: =30
+                Y: =66
+                ZIndex: =9
+
+            Title1_44 As label:
+                Height: =26
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =15
+                Text: |-
+                    ="Cantidad:"
+                VerticalAlign: =VerticalAlign.Top
+                Width: =107
+                X: =425
+                Y: =36
+                ZIndex: =10
+
+        Icon4_22 As icon.Cancel:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =53
+            Icon: =Icon.ChevronLeft
+            OnSelect: |-
+                =UpdateContext({showAdd:false})
+            Width: =55
+            X: =7
+            Y: =6
+            ZIndex: =7
+
+        Icon2_19 As icon.Search:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =55
+            Icon: =Icon.Search
+            Width: =55
+            X: =378
+            Y: =5
+            ZIndex: =8
+
+        Button5_8 As button:
+            DisplayMode: =
+            OnSelect: |
+                =ForAll(
+                    Order_Gallery_10.AllItems,
+                    Patch(
+                        Ordenes,
+                        Defaults(Ordenes),
+                        {
+                            Tour: LookUp(
+                                Managers,
+                                Name = Label8_5.Text,
+                                Tour.Value
+                            )
+                        },
+                        {Product_Name: Title1_43.Text},
+                        {Product_ID: Product_ID},
+                        {Product_Measure: Measure.Value},
+                        {Quantity: Value(TextInput3_12.Text)},
+                        {Manager: Label8_5.Text},
+                        {Cod_CE: var_CE},
+                        {Status: "Pendiente"},
+                        {Details: "Solicitud"}
+                    )
+                );
+                
+                Refresh(Ordenes);
+                Notify("Se han agregado exitosamente los productos al centro educativo " & var_CE, NotificationType.Success);
+                Clear(CollectAdd);
+            Text: ="Guardar"
+            X: =992
+            Y: =704
+            ZIndex: =9
+
+        Button3_25 As button:
+            Fill: =RGBA(255, 0, 0, 1)
+            HoverFill: =ColorFade(Self.BorderColor, 20%)
+            OnSelect: =Clear(CollectAdd);
+            Text: ="Limpiar"
+            X: =1182
+            Y: =704
+            ZIndex: =10
+
+        Label2_11 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =39
+            Size: =15
+            Text: =LookUp(Managers,Name = User().FullName, Tour.Value) 
+            Visible: =false
+            Width: =114
+            X: =696
+            Y: =642
+            ZIndex: =11
+
+        Subtitle2_60 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =29
+            OnSelect: =
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: |-
+                ="Encargado:"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =138
+            X: =696
+            Y: =638
+            ZIndex: =14
+
+        Label8_5 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =37
+            Size: =16
+            Text: =LookUp(Ordenes,Cod_CE = var_CE, Manager )
+            Width: =322
+            X: =815
+            Y: =632
+            ZIndex: =15
+
+        Subtitle2_61 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            OnSelect: =
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: |-
+                ="Centro Educativo: " & var_CE
+            VerticalAlign: =VerticalAlign.Top
+            Width: =271
+            X: =697
+            Y: =674
+            ZIndex: =16
+

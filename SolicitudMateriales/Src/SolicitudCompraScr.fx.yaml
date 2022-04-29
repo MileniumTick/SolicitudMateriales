@@ -258,10 +258,10 @@
                         CompraMaterial,
                         Defaults(CompraMaterial),
                         {
-                            Title: Product_ID,
-                            Product_Name: Product_Name,
-                            OrderQuantity: Value(TextInput4.Text),
-                            order_x0020_date: Now()
+                            Code_Product: Product_ID,
+                            'Product Name': Product_Name,
+                            'Order Quantity': Value(TextInput4.Text),
+                            'Order Date': Now()
                         }
                     )
                 );

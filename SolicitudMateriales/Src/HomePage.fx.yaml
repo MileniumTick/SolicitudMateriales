@@ -17,7 +17,7 @@ HomePage As screen:
 
     Button1 As button:
         BorderThickness: =1
-        DisplayMode: =If(User().FullName <> "Franklin Carballo Segura" &&  User().FullName <> "Ariel Gaitán Rodríguez" &&  User().FullName <> "Kevin Hernández Campos", Disabled)
+        DisplayMode: =If(User().FullName <> "Franklin Carballo Segura" &&  User().FullName <> "Ariel Gaitan Rodriguez" &&  User().FullName <> "Kevin Hernández Campos", Disabled)
         Fill: =RGBA(141, 198, 63, 1)
         HoverFill: =ColorFade(Self.Fill, -15%)
         OnSelect: |
@@ -84,7 +84,7 @@ HomePage As screen:
     Button1_10 As button:
         DisplayMode: |+
             =If(
-                User().FullName <> "Franklin Carballo Segura" && User().FullName <> "Kevin Hernández Campos" && User().FullName <> "Ariel Gaitán Rodríguez",
+                User().FullName <> "Franklin Carballo Segura" && User().FullName <> "Kevin Hernández Campos" && User().FullName <> "Ariel Gaitan Rodriguez",
                 Disabled
             )
             
@@ -121,7 +121,7 @@ HomePage As screen:
                 true
             );
             If(
-                User().FullName = "Franklin Carballo Segura" || User().FullName = "Kevin Hernández Campos" || User().FullName = "Ariel Gaitán Rodríguez",
+                User().FullName = "Franklin Carballo Segura" || User().FullName = "Kevin Hernández Campos" || User().FullName = "Ariel Gaitan Rodriguez",
                 Navigate(ConfirmacionDevolucionM),
                 Navigate(HomePage),
                 Notify("No tiene permisos para realizar esta acción")

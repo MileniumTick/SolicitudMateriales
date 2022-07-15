@@ -469,7 +469,7 @@ ConfirmacionDevolucionM As screen:
                     Correo,
                     LookUp(
                         Managers,
-                        Name = Label8_1.Text,
+                        Title = Label8_1.Text,
                         Email
                     )
                 );

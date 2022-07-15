@@ -529,7 +529,7 @@ Prueba As screen:
                                 {
                                     Tour: LookUp(
                                         Managers,
-                                        Name = User().FullName,
+                                        Title = User().FullName,
                                         Tour.Value
                                     )
                                 },
@@ -551,7 +551,7 @@ Prueba As screen:
                                 {
                                     Tour: LookUp(
                                         Managers,
-                                        Name = User().FullName,
+                                        Title = User().FullName,
                                         Tour.Value
                                     )
                                 },

@@ -68,7 +68,7 @@ SolicitudMateriales As screen:
 
         Image1_5 As image:
             Height: =80
-            Image: =ThisItem.Product_Img
+            Image: =If(ThisItem.'Tiene datos adjuntos' = true,First(ThisItem.'Datos adjuntos').Value,ThisItem.Product_Img)
             OnSelect: =Select(Parent)
             Width: =80
             X: =36
@@ -873,7 +873,7 @@ SolicitudMateriales As screen:
 
             Image1_7 As image:
                 Height: =80
-                Image: =ThisItem.Product_Img
+                Image: =If(ThisItem.'Tiene datos adjuntos' = true,First(ThisItem.'Datos adjuntos').Value,ThisItem.Product_Img)
                 OnSelect: =Select(Parent)
                 Width: =80
                 X: =36

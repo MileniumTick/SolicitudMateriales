@@ -31,7 +31,7 @@ InventarioProduct As screen:
 
         Image2 As image:
             Height: =128
-            Image: =ThisItem.Product_Img
+            Image: =If(ThisItem.'Tiene datos adjuntos' = true,First(ThisItem.'Datos adjuntos').Value,ThisItem.Product_Img)
             OnSelect: =Select(Parent)
             Width: =128
             X: =16

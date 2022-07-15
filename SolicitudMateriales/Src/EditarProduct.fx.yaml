@@ -20,6 +20,8 @@ EditarProduct As screen:
         Height: =587
         Item: =Gallery1.Selected
         NumberOfColumns: =2
+        OnSuccess: |-
+            =ResetForm(Form1); Navigate(InventarioProduct); UpdateContext({showDialog:false})
         Width: =1156
         X: =106
         Y: =114
@@ -104,7 +106,7 @@ EditarProduct As screen:
             Required: =false
             Update: =Value(DataCardValue2.Text)
             Width: =578
-            X: =1
+            X: =0
             Y: =3
             ZIndex: =1
 
@@ -158,6 +160,72 @@ EditarProduct As screen:
                 Width: =30
                 Wrap: =false
                 Y: =DataCardKey2.Y
+                ZIndex: =4
+
+        "'Datos adjuntos_DataCard2' As typedDataCard.attachmentsEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="{Attachments}"
+            Default: =ThisItem.'Datos adjuntos'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Products],DataSourceInfo.DisplayName,"{Attachments}")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue7.Attachments
+            Width: =578
+            X: =1
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey7 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =If(CountRows(DataCardValue7.Attachments) < 1,"Ingresar imagen del producto","Ingresar más datos adjuntos")
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue7 As attachments:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DisplayMode: =Parent.DisplayMode
+                Height: =103
+                IsInDataCard: =true
+                Items: =Parent.Default
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                ZIndex: =2
+
+            ErrorMessage3 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue7.Y + DataCardValue7.Height
+                ZIndex: =3
+
+            StarVisible3 As label:
+                Align: =Align.Center
+                Height: =DataCardKey7.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey7.Y
                 ZIndex: =4
 
         Product_Name_DataCard1 As typedDataCard.textualEditCard:
@@ -430,6 +498,74 @@ EditarProduct As screen:
                 Y: =DataCardKey14.Y
                 ZIndex: =4
 
+        Ideal_Stock_DataCard1 As typedDataCard.numberEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Ideal_Stock"
+            Default: =ThisItem.Ideal_Stock
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="Ideal_Stock"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =Value(DataCardValue17.Text)
+            Width: =578
+            X: =1
+            Y: =2
+            ZIndex: =3
+
+            DataCardKey17 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: ="Cantidad Minima"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue17 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Format: =TextFormat.Number
+                HintText: ="0"
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey17.Y + DataCardKey17.Height + 5
+                ZIndex: =2
+
+            ErrorMessage11 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue17.Y + DataCardValue17.Height
+                ZIndex: =3
+
+            StarVisible11 As label:
+                Align: =Align.Center
+                Height: =DataCardKey17.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey17.Y
+                ZIndex: =4
+
         Product_Img_DataCard1 As typedDataCard.textualEditCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="Product_Img"
@@ -498,74 +634,6 @@ EditarProduct As screen:
                 Y: =DataCardKey15.Y
                 ZIndex: =4
 
-        Ideal_Stock_DataCard1 As typedDataCard.numberEditCard:
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="Ideal_Stock"
-            Default: =ThisItem.Ideal_Stock
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: ="Ideal_Stock"
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            Required: =true
-            Update: =Value(DataCardValue17.Text)
-            Width: =578
-            X: =0
-            Y: =3
-            ZIndex: =3
-
-            DataCardKey17 As label:
-                AutoHeight: =true
-                Height: =34
-                Text: ="Cantidad Minima"
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue17 As text:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                Default: =Parent.Default
-                DelayOutput: =true
-                DisplayMode: =Parent.DisplayMode
-                Format: =TextFormat.Number
-                HintText: ="0"
-                PaddingLeft: =5
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey17.Y + DataCardKey17.Height + 5
-                ZIndex: =2
-
-            ErrorMessage11 As label:
-                AutoHeight: =true
-                Height: =10
-                Live: =Live.Assertive
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Error
-                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardValue17.Y + DataCardValue17.Height
-                ZIndex: =3
-
-            StarVisible11 As label:
-                Align: =Align.Center
-                Height: =DataCardKey17.Height
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                Wrap: =false
-                Y: =DataCardKey17.Y
-                ZIndex: =4
-
     Icon3 As icon.Check:
         BorderColor: =RGBA(0, 0, 0, 0)
         Color: =RGBA(255, 255, 255, 1)
@@ -625,9 +693,7 @@ EditarProduct As screen:
             DisplayMode: =
             Fill: =RGBA(141, 198, 63, 1)
             HoverFill: =ColorFade(Self.Fill, -15%)
-            OnSelect: |-
-                =SubmitForm(Form1);
-                ResetForm(Form1); Navigate(InventarioProduct); UpdateContext({showDialog:false})
+            OnSelect: =SubmitForm(Form1);
             Text: ="Si"
             X: =452
             Y: =574

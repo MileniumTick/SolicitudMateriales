@@ -479,7 +479,7 @@ Prueba2 As screen:
                         Correo,
                         LookUp(
                             Managers,
-                            Title = Label8_4.Text,
+                            Name = Label8_4.Text,
                             Email
                         )
                     ));
@@ -882,7 +882,7 @@ Prueba2 As screen:
                         {
                             Tour: LookUp(
                                 Managers,
-                                Title = Label8_3.Text,
+                                Name = Label8_3.Text,
                                 Tour.Value
                             )
                         },

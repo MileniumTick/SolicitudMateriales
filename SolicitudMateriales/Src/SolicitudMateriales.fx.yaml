@@ -529,7 +529,7 @@ SolicitudMateriales As screen:
                                 {
                                     Tour: LookUp(
                                         Managers,
-                                        Title = User().FullName,
+                                        Name = User().FullName,
                                         Tour.Value
                                     ),
                                     Product_Name: Title1_18.Text,
@@ -551,7 +551,7 @@ SolicitudMateriales As screen:
                                 {
                                     Tour: LookUp(
                                         Managers,
-                                        Title = User().FullName,
+                                        Name = User().FullName,
                                         Tour.Value
                                     ),
                                     Product_Name: Title1_18.Text,

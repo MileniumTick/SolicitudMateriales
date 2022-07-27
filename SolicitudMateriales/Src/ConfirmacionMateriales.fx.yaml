@@ -479,7 +479,7 @@ ConfirmacionMateriales As screen:
                         Correo,
                         LookUp(
                             Managers,
-                            Title = Label8.Text,
+                            Name = Label8.Text,
                             Email
                         )
                     )
@@ -888,7 +888,7 @@ ConfirmacionMateriales As screen:
                         {
                             Tour: LookUp(
                                 Managers,
-                                Title = Label8_2.Text,
+                                Name = Label8_2.Text,
                                 Tour.Value
                             )
                         },

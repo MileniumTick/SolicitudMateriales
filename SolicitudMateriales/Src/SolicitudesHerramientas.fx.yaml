@@ -481,7 +481,7 @@ SolicitudesHerramientas As screen:
                         Correo,
                         LookUp(
                             Managers,
-                            Title = Label8_6.Text,
+                            Name = Label8_6.Text,
                             Email
                         )
                     )
@@ -890,7 +890,7 @@ SolicitudesHerramientas As screen:
                         {
                             Tour: LookUp(
                                 Managers,
-                                Title = Label8_5.Text,
+                                Name = Label8_5.Text,
                                 Tour.Value
                             )
                         },

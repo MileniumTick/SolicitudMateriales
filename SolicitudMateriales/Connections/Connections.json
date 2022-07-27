@@ -238,7 +238,8 @@
       "eb9e7c6c-f96e-4ac5-9084-6e6daeb277d3",
       "3815ca76-4f30-4c7a-b46c-9921092db6fb",
       "b8ded823-986e-41ac-92e4-e6dd0d2d920b",
-      "4f64bb17-cd44-41f1-9505-36243f361170"
+      "4f64bb17-cd44-41f1-9505-36243f361170",
+      "f5504f5b-626b-49e6-b728-6e2827bc557d"
     ],
     "id": "87f39c66-bcfd-4f1c-b558-b193cf64abf5"
   },
@@ -412,6 +413,33 @@
     "dependents": [],
     "id": "eb9e7c6c-f96e-4ac5-9084-6e6daeb277d3"
   },
+  "f5504f5b-626b-49e6-b728-6e2827bc557d": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "displayName": "Excel",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1570/1.0.1570.2764/excel/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_excel"
+    },
+    "datasets": {
+      "b!foyqED3iEEihONGkl0lMJrJVnug7FPhDj4wADt0o0eulSgQ7xUD9SZzuh4DD4nxk.01Q7HWVI36PEAZK6EBTBC2XHRTFKXIRB3J": {
+        "dataSources": {
+          "Tabla1": {
+            "tableName": "Tabla1"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Tabla1"
+    ],
+    "dependencies": {
+      "fileSource": "87f39c66-bcfd-4f1c-b558-b193cf64abf5"
+    },
+    "dependents": [],
+    "id": "f5504f5b-626b-49e6-b728-6e2827bc557d"
+  },
   "fc2bf816-54ac-4f7f-bed7-aa6e7684977d": {
     "connectionParameters": {
       "sku": "Enterprise"
@@ -426,7 +454,8 @@
     },
     "datasets": {},
     "dataSources": [
-      "Office365Outlook"
+      "Office365Outlook",
+      "Office365Outlook_1"
     ],
     "dependencies": {},
     "dependents": [

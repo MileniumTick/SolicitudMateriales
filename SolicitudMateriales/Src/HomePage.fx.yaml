@@ -143,7 +143,7 @@ HomePage As screen:
         HoverFill: =ColorFade(Self.Fill, -15%)
         OnSelect: |-
             =Refresh(Ordenes) +
-            If(User().FullName = "Franklin Carballo Segura" || User().FullName = "Kevin Hernández Campos"  || User().FullName = "Ariel Gaitán Rodríguez" || User().Email= "jchavarria@conzultek.com", Navigate(ReporteCE),  Navigate(HomePage), Notify("No tiene permisos para realizar esta acción")  )
+            If(User().FullName = "Franklin Carballo Segura" || User().FullName = "Kevin Hernández Campos"  || User().Email = "agaitan@conzultek.com" || User().Email= "jchavarria@conzultek.com", Navigate(ReporteCE),  Navigate(HomePage), Notify("No tiene permisos para realizar esta acción")  )
         Text: ="Reporte CE"
         X: =11
         Y: =9

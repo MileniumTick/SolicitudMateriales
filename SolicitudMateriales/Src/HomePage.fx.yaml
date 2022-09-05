@@ -17,7 +17,7 @@ HomePage As screen:
 
     Button1 As button:
         BorderThickness: =1
-        DisplayMode: =If(User().FullName <> "Franklin Carballo Segura" &&  User().Email <> "agaitan@conzultek.com" &&  User().FullName <> "Kevin Hernández Campos" &&  User().Email <> "jchavarria@conzultek.com", Disabled)
+        DisplayMode: =If(User().FullName <> "Franklin Carballo Segura" &&  User().Email <> "kmolina@conzultek.com" &&  User().FullName <> "Kevin Hernández Campos" &&  User().Email <> "jchavarria@conzultek.com", Disabled)
         Fill: =RGBA(141, 198, 63, 1)
         HoverFill: =ColorFade(Self.Fill, -15%)
         OnSelect: |-
@@ -34,7 +34,6 @@ HomePage As screen:
         ZIndex: =4
 
     Button1_2 As button:
-        DisplayMode: =
         Fill: =RGBA(141, 198, 63, 1)
         FontWeight: =FontWeight.Bold
         HoverFill: =ColorFade(Self.Fill, -15%)
@@ -43,7 +42,7 @@ HomePage As screen:
             
             Set(showD,true);
             
-            If(User().Email in Managers.Email || User().FullName = "Franklin Carballo Segura" || User().FullName = "Ariel Gaitan Rodriguez" ,Navigate(SolicitudMateriales,None), Navigate(HomePage,None) )
+            If(User().Email in Managers.Email || User().FullName = "Franklin Carballo Segura" || User().Email = "kmolina@conzultek.com" ,Navigate(SolicitudMateriales,None), Navigate(HomePage,None) )
         Text: ="Materiales"
         X: =981
         Y: =498
@@ -89,7 +88,7 @@ HomePage As screen:
     Button1_10 As button:
         DisplayMode: |+
             =If(
-                User().FullName <> "Franklin Carballo Segura" && User().FullName <> "Kevin Hernández Campos" && User().Email <> "agaitan@conzultek.com" && User().Email <> "jchavarria@conzultek.com",
+                User().FullName <> "Franklin Carballo Segura" && User().FullName <> "Kevin Hernández Campos" && User().Email <> "kmolina@conzultek.com" && User().Email <> "jchavarria@conzultek.com",
                 Disabled
             )
             
@@ -115,7 +114,7 @@ HomePage As screen:
         ZIndex: =9
 
     Button1_13 As button:
-        DisplayMode: =If(User().FullName <> "Franklin Carballo Segura" && User().FullName <> "Kevin Hernández Campos" && User().Email <> "agaitan@conzultek.com" && User().Email <> "jchavarria@conzultek.com", Disabled)
+        DisplayMode: =If(User().FullName <> "Franklin Carballo Segura" && User().FullName <> "Kevin Hernández Campos" && User().Email <> "kmolina@conzultek.com" && User().Email <> "jchavarria@conzultek.com", Disabled)
         Fill: =RGBA(141, 198, 63, 1)
         HoverFill: =ColorFade(Self.Fill, -15%)
         OnSelect: |-
@@ -143,7 +142,7 @@ HomePage As screen:
         HoverFill: =ColorFade(Self.Fill, -15%)
         OnSelect: |-
             =Refresh(Ordenes) +
-            If(User().FullName = "Franklin Carballo Segura" || User().FullName = "Kevin Hernández Campos"  || User().Email = "agaitan@conzultek.com" || User().Email= "jchavarria@conzultek.com", Navigate(ReporteCE),  Navigate(HomePage), Notify("No tiene permisos para realizar esta acción")  )
+            If(User().FullName = "Franklin Carballo Segura" || User().FullName = "Kevin Hernández Campos"  || User().Email = "kmolina@conzultek.com" || User().Email= "jchavarria@conzultek.com", Navigate(ReporteCE),  Navigate(HomePage), Notify("No tiene permisos para realizar esta acción")  )
         Text: ="Reporte CE"
         X: =11
         Y: =9
@@ -152,7 +151,7 @@ HomePage As screen:
     Icon9 As icon.Health:
         BorderColor: =RGBA(230, 230, 230, 1)
         Color: =RGBA(255, 255, 255, 1)
-        DisplayMode: =If(User().FullName = "Franklin Carballo Segura" || User().FullName = "Kevin Hernández Campos" || User().Email = "jchavarria@conzultek.com" || User().Email = "agaitan@conzultek.com",Edit,Disabled)
+        DisplayMode: =If(User().FullName = "Franklin Carballo Segura" || User().FullName = "Kevin Hernández Campos" || User().Email = "jchavarria@conzultek.com" || User().Email = "kmolina@conzultek.com",Edit,Disabled)
         Height: =49
         Icon: =Icon.ShoppingCart
         OnSelect: =Navigate(SolicitudCompraScr,ScreenTransition.None)

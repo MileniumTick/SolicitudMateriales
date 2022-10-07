@@ -644,7 +644,7 @@ SolicitudMateriales As screen:
                             User().FullName,
                             User().Email
                         ),
-                        DevolucionPDF.Run(
+                        'DevolucionPDF-V2'.Run(
                             _html,
                             ce,
                             User().FullName,

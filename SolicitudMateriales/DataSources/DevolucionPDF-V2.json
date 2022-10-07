@@ -1,8 +1,8 @@
 [
   {
     "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
-    "FlowNameId": "6226fe97-0d9e-405e-aa64-8fb53ba78922",
-    "Name": "SolicitudPDF",
+    "FlowNameId": "d089db30-3ef2-4149-b606-5c17704870c3",
+    "Name": "DevolucionPDF-V2",
     "ServiceKind": "ConnectedWadl",
     "Type": "ServiceInfo",
     "WorkflowEntityId": null

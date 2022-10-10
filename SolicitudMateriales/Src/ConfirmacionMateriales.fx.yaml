@@ -484,7 +484,7 @@ ConfirmacionMateriales As screen:
                         )
                     )
                 );
-                ConfirmacionPDF.Run(
+                ConfirmacionPDF_V2.Run(
                     _html,
                     Correo
                 );

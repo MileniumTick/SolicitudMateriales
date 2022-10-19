@@ -638,7 +638,8 @@ SolicitudMateriales As screen:
                     );
                     If(
                         var = true,
-                        SolicitudPDF.Run(
+                
+                    'SolicitudPDF-V2'.Run(
                             _html,
                             ce,
                             User().FullName,

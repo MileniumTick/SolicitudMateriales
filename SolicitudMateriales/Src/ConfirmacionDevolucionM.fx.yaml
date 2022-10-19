@@ -473,7 +473,7 @@ ConfirmacionDevolucionM As screen:
                         Email
                     )
                 );
-                ConfirmacionPDF.Run(
+                ConfirmacionPDF_V2.Run(
                     _html,
                     Correo
                 );
@@ -633,6 +633,11 @@ ConfirmacionDevolucionM As screen:
             X: =611
             Y: =633
             ZIndex: =6
+
+        Label17 As label:
+            Text: ="V.1"
+            Y: =728
+            ZIndex: =7
 
     Container4_6 As groupContainer:
         Fill: =RGBA(0, 0, 0, 0.63)

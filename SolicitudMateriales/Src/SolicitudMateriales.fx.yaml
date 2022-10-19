@@ -681,6 +681,11 @@ SolicitudMateriales As screen:
             Y: =668
             ZIndex: =4
 
+        Label5 As label:
+            Text: ="V.1"
+            Y: =728
+            ZIndex: =5
+
     Container4_3 As groupContainer:
         Fill: =RGBA(0, 0, 0, 0.63)
         Height: =768

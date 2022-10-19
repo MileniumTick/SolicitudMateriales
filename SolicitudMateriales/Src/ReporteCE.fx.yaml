@@ -159,7 +159,8 @@ ReporteCE As screen:
                     } )
             );
             
-            Set(varfilelink,Export_Excel_Materiales.Run(JSON(colData,JSONFormat.IncludeBinaryData)).filelink); Launch(varfilelink)
+            Set(varfilelink,
+            'Export_Excel_Materiales-v2'.Run(JSON(colData,JSONFormat.IncludeBinaryData)).filelink); Launch(varfilelink)
         Width: =47
         X: =1315
         Y: =9

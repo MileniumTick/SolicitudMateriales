@@ -379,7 +379,7 @@ ConfirmacionMateriales As screen:
 
         HtmlText1_5 As htmlViewer:
             DisplayMode: =DisplayMode.View
-            Height: =645
+            Height: =576
             HtmlText: |-
                 =   "<html>
                 <head>
@@ -479,7 +479,7 @@ ConfirmacionMateriales As screen:
                         Correo,
                         LookUp(
                             Managers,
-                            Name = Label8.Text,
+                            Name = ComboBox2_1.Selected.Name,
                             Email
                         )
                     )
@@ -548,7 +548,8 @@ ConfirmacionMateriales As screen:
                     NotificationType.Success
                 )
             Text: ="Enviar"
-            X: =505
+            Visible: =!IsBlank(ComboBox2_1.Selected)
+            X: =497
             Y: =668
             ZIndex: =5
 
@@ -974,4 +975,28 @@ ConfirmacionMateriales As screen:
             X: =697
             Y: =674
             ZIndex: =16
+
+    ComboBox2_1 As combobox:
+        DisplayFields: =["Title"]
+        Height: =37
+        Items: =Managers
+        SearchFields: =["Title"]
+        SearchItems: =Search(Managers,ComboBox2_1.SearchText,"Title")
+        SelectMultiple: =false
+        Visible: =showDialog
+        Width: =401
+        X: =496
+        Y: =622
+        ZIndex: =18
+
+    Label21_1 As label:
+        Align: =Align.Center
+        Height: =39
+        Text: |-
+            ="Enviar notificacion a:"
+        Visible: =showDialog
+        Width: =400
+        X: =498
+        Y: =579
+        ZIndex: =19
 

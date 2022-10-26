@@ -339,7 +339,7 @@ ConfirmacionDevolucionM As screen:
         Width: =138
         X: =596
         Y: =651
-        ZIndex: =12
+        ZIndex: =11
 
     Label2_3 As label:
         FontWeight: =FontWeight.Bold
@@ -350,7 +350,7 @@ ConfirmacionDevolucionM As screen:
         Width: =114
         X: =514
         Y: =727
-        ZIndex: =13
+        ZIndex: =12
 
     Label8_1 As label:
         FontWeight: =FontWeight.Semibold
@@ -360,7 +360,7 @@ ConfirmacionDevolucionM As screen:
         Width: =322
         X: =715
         Y: =645
-        ZIndex: =14
+        ZIndex: =13
 
     Subtitle2_27 As label:
         FontWeight: =FontWeight.Bold
@@ -377,13 +377,13 @@ ConfirmacionDevolucionM As screen:
         Width: =271
         X: =790
         Y: =705
-        ZIndex: =15
+        ZIndex: =14
 
     Container2_6 As groupContainer:
         Height: =768
         Visible: =showDialog
         Width: =1366
-        ZIndex: =17
+        ZIndex: =15
 
         Rectangle2_6 As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
@@ -652,7 +652,7 @@ ConfirmacionDevolucionM As screen:
         Height: =768
         Visible: =showDev
         Width: =1366
-        ZIndex: =18
+        ZIndex: =16
 
         Rectangle3_6 As rectangle:
             Fill: =RGBA(0, 0, 0, 0.7)
@@ -691,8 +691,9 @@ ConfirmacionDevolucionM As screen:
         Height: =43
         Text: |-
             ="Enviar notificacion a:"
+        Visible: =showDialog
         Width: =383
         X: =487
         Y: =608
-        ZIndex: =19
+        ZIndex: =17
 

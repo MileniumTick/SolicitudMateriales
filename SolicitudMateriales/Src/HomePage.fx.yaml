@@ -164,3 +164,8 @@ HomePage As screen:
         Y: =5
         ZIndex: =12
 
+    Label22 As label:
+        Text: ="v1"
+        Y: =728
+        ZIndex: =13
+

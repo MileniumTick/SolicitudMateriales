@@ -469,7 +469,7 @@ ConfirmacionDevolucionM As screen:
                     Correo,
                     LookUp(
                         Managers,
-                        Name = Label8_1.Text,
+                        Name = ComboBox2.Selected.Name,
                         Email
                     )
                 );
@@ -596,6 +596,7 @@ ConfirmacionDevolucionM As screen:
                     )
                 )
             Text: ="Enviar"
+            Visible: =!IsBlank(ComboBox2.Selected)
             X: =485
             Y: =707
             ZIndex: =3
@@ -634,10 +635,17 @@ ConfirmacionDevolucionM As screen:
             Y: =633
             ZIndex: =6
 
-        Label17 As label:
-            Text: ="V.1"
-            Y: =728
-            ZIndex: =7
+        ComboBox2 As combobox:
+            DisplayFields: =["Title"]
+            Height: =41
+            Items: =Managers
+            SearchFields: =["Title"]
+            SearchItems: =Search(Managers,ComboBox2.SearchText,"Title")
+            SelectMultiple: =false
+            Width: =384
+            X: =485
+            Y: =650
+            ZIndex: =9
 
     Container4_6 As groupContainer:
         Fill: =RGBA(0, 0, 0, 0.63)
@@ -677,4 +685,14 @@ ConfirmacionDevolucionM As screen:
             X: =793
             Y: =364
             ZIndex: =3
+
+    Label21 As label:
+        Align: =Align.Center
+        Height: =43
+        Text: |-
+            ="Enviar notificacion a:"
+        Width: =383
+        X: =487
+        Y: =608
+        ZIndex: =19
 

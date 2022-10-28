@@ -338,7 +338,7 @@ ConfirmacionDevolucionM As screen:
         VerticalAlign: =VerticalAlign.Top
         Width: =138
         X: =596
-        Y: =651
+        Y: =665
         ZIndex: =11
 
     Label2_3 As label:
@@ -359,7 +359,7 @@ ConfirmacionDevolucionM As screen:
         Text: =LookUp(Ordenes, Cod_CE = var_Cc,Manager)
         Width: =322
         X: =715
-        Y: =645
+        Y: =659
         ZIndex: =13
 
     Subtitle2_27 As label:
@@ -614,7 +614,7 @@ ConfirmacionDevolucionM As screen:
         Label13_1 As label:
             Align: =Align.Center
             FontWeight: =FontWeight.Semibold
-            Height: =48
+            Height: =65
             Size: =20
             Text: ="Agregar Nuevo Centro Educativo"
             Visible: =If(CE = true, true, false)
@@ -632,7 +632,7 @@ ConfirmacionDevolucionM As screen:
             Visible: =If(CE = true, true, false)
             Width: =139
             X: =611
-            Y: =633
+            Y: =654
             ZIndex: =6
 
         ComboBox2 As combobox:
@@ -643,8 +643,8 @@ ConfirmacionDevolucionM As screen:
             SearchItems: =Search(Managers,ComboBox2.SearchText,"Title")
             SelectMultiple: =false
             Width: =384
-            X: =485
-            Y: =650
+            X: =68
+            Y: =625
             ZIndex: =9
 
     Container4_6 As groupContainer:
@@ -693,7 +693,7 @@ ConfirmacionDevolucionM As screen:
             ="Enviar notificacion a:"
         Visible: =showDialog
         Width: =383
-        X: =487
-        Y: =608
+        X: =68
+        Y: =576
         ZIndex: =17
 

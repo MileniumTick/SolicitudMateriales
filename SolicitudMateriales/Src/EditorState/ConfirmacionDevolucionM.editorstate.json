@@ -1489,7 +1489,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ComboBox2",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8608,7 +8608,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "TextInput7_1",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

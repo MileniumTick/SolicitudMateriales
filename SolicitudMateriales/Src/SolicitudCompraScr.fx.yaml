@@ -247,7 +247,7 @@
             Height: =46
             HoverFill: =ColorFade(Self.Fill, -20%)
             OnSelect: |-
-                =SolicituddeCompra.Run(
+                ='SolicituddeCompra-v2'.Run(
                     Concat(Gallery4.AllItems,"<td>" & Product_Name & " </td>
                               <td>" & Value(TextInput4.Text) & " </td>",
                         "</tr><tr>")

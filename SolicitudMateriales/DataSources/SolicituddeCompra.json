@@ -1,9 +1,10 @@
 [
   {
-    "AddinConnectorId": "5246cd68-1083-45a4-ba2c-5acd96ad1ad3",
-    "AddinId": "6d1f157d-95bf-406d-b65d-cfd3240f724e",
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "5246cd68-1083-45a4-ba2c-5acd96ad1ad3",
     "Name": "SolicituddeCompra",
-    "ServiceKind": "AddinWadl",
-    "Type": "ServiceInfo"
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": null
   }
 ]

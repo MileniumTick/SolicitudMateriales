@@ -142,7 +142,7 @@ HomePage As screen:
         HoverFill: =ColorFade(Self.Fill, -15%)
         OnSelect: |-
             =Refresh(Ordenes) +
-            If(User().FullName = "Franklin Carballo Segura" || User().FullName = "Kevin Hernández Campos"  || User().Email = "kmolina@conzultek.com" || User().Email= "jchavarria@conzultek.com", Navigate(ReporteCE),  Navigate(HomePage), Notify("No tiene permisos para realizar esta acción")  )
+            If(User().FullName = "Franklin Carballo Segura" || User().Email = "mfuentes@conzultek.com"  || User().Email = "kmolina@conzultek.com" || User().Email= "admindevops@conzultek.com", Navigate(ReporteCE),  Navigate(HomePage), Notify("No tiene permisos para realizar esta acción")  )
         Text: ="Reporte CE"
         X: =11
         Y: =9
@@ -151,7 +151,7 @@ HomePage As screen:
     Icon9 As icon.Health:
         BorderColor: =RGBA(230, 230, 230, 1)
         Color: =RGBA(255, 255, 255, 1)
-        DisplayMode: =If(User().FullName = "Franklin Carballo Segura" || User().FullName = "Kevin Hernández Campos" || User().Email = "jchavarria@conzultek.com" || User().Email = "kmolina@conzultek.com",Edit,Disabled)
+        DisplayMode: =If(User().FullName = "Franklin Carballo Segura" || User().Email = "mfuentes@conzultek.com" || User().Email = "admindevops@conzultek.com"  || User().Email = "kmolina@conzultek.com",Edit,Disabled)
         Height: =49
         Icon: =Icon.ShoppingCart
         OnSelect: =Navigate(SolicitudCompraScr,ScreenTransition.None)
@@ -159,7 +159,7 @@ HomePage As screen:
         PaddingLeft: =7
         PaddingRight: =7
         PaddingTop: =7
-        Visible: =If(User().FullName = "Franklin Carballo Segura" || User().FullName = "Kevin Hernández Campos" || User().Email = "jchavarria@conzultek.com" || User().Email = "agaitan@conzultek.com", true,false)
+        Visible: =If(User().FullName = "Franklin Carballo Segura" || User().Email = "mfuentes@conzultek.com" || User().Email = "admindevops@conzultek.com" || User().Email = "agaitan@conzultek.com", true,false)
         X: =1287
         Y: =5
         ZIndex: =12

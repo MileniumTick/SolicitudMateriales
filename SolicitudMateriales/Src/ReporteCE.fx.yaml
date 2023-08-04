@@ -89,7 +89,7 @@ ReporteCE As screen:
         Height: =64
         Size: =20
         Text: |-
-            ="Centro Educativo: " & info & " - Cantidad de Productos: "& CountRows(Gallery3_1.AllItems)
+            ="Proyecto: " & info & " - Cantidad de Productos: "& CountRows(Gallery3_1.AllItems)
         Width: =954
         X: =412
         ZIndex: =3
@@ -154,8 +154,11 @@ ReporteCE As screen:
                 Collect(
                     colData,
                     {
-                        Product_Name:ThisRecord.Product_Name,
-                        Quantity: Value(Subtitle1_3.Text)
+                        Detalle:ThisRecord.Product_Name,
+                        Precio: Subtitle1_6.Text,
+                        Quantity: Value(Subtitle1_3.Text),
+                        CostoTotal:100
+                        
                     } )
             );
             
@@ -291,6 +294,22 @@ ReporteCE As screen:
             X: =653
             Y: =12
             ZIndex: =11
+
+        Subtitle1_6 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            Height: =33
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =LookUp(Products, Product_ID= Title1_1.Text).Product_Detail
+            VerticalAlign: =VerticalAlign.Top
+            Width: =196
+            X: =653
+            Y: =28
+            ZIndex: =12
 
     Rectangle2_1 As rectangle:
         Height: =36

@@ -166,7 +166,7 @@ HomePage As screen:
         ZIndex: =12
 
     Label22 As label:
-        Text: ="v6"
+        Text: ="v7"
         Y: =728
         ZIndex: =13
 

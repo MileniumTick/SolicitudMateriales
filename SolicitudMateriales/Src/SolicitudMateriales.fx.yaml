@@ -1096,7 +1096,6 @@ SolicitudMateriales As screen:
             Align: =Align.Center
             Default: =""
             FontWeight: =FontWeight.Semibold
-            Format: =TextFormat.Number
             Height: =52
             Size: =17
             Width: =222

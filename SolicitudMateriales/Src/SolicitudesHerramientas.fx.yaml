@@ -145,7 +145,7 @@ SolicitudesHerramientas As screen:
         BorderThickness: =3
         Height: =555
         Items: |
-            =Sort(Filter([@Prestamos],var_CE = Manager,Estado ="Pendiente",Detalle="Solicitud"),ID_Herramienta.Value,Ascending)
+            =Sort(Filter([@Prestamos],var_CE = Manager,Estado ="Pendiente",Detalle="Solicitud"),ID_Herramienta.Value,SortOrder.Ascending)
         Layout: =Layout.Vertical
         TemplatePadding: =0
         TemplateSize: =80
@@ -289,7 +289,7 @@ SolicitudesHerramientas As screen:
         ZIndex: =9
 
     Button2_7 As button:
-        DisplayMode: =If(IsBlank(TextInput1_7), Disabled,Edit)
+        DisplayMode: =If(IsBlank(TextInput1_7), DisplayMode.Disabled,DisplayMode.Edit)
         FontWeight: =FontWeight.Bold
         OnSelect: |-
             =UpdateContext({showDialog:true})
@@ -319,7 +319,7 @@ SolicitudesHerramientas As screen:
         FontWeight: =FontWeight.Bold
         Height: =39
         Size: =15
-        Text: =LookUp(Managers,Name = User().FullName, Tour.Value) 
+        Text: =LookUp(Managers,'Name (Title)' = User().FullName, Tour.Value) 
         Visible: =false
         Width: =114
         X: =514
@@ -481,7 +481,7 @@ SolicitudesHerramientas As screen:
                         Correo,
                         LookUp(
                             Managers,
-                            Name = Label8_6.Text,
+                            'Name (Title)' = Label8_6.Text,
                             Email
                         )
                     )
@@ -638,7 +638,7 @@ SolicitudesHerramientas As screen:
                 ZIndex: =3
 
             Body1_14 As label:
-                Color: =If(ThisItem.Quantity < ThisItem.Ideal_Stock, Red)
+                Color: =If(ThisItem.Quantity < ThisItem.Ideal_Stock, Color.Red)
                 FontWeight: =FontWeight.Semibold
                 Height: =24
                 OnSelect: =Select(Parent)
@@ -797,7 +797,7 @@ SolicitudesHerramientas As screen:
                 ZIndex: =5
 
             TextInput3_12 As text:
-                BorderColor: =If(IsBlank(TextInput3_12.Text) || Value(TextInput3_12.Text) <= 0 , Red)
+                BorderColor: =If(IsBlank(TextInput3_12.Text) || Value(TextInput3_12.Text) <= 0 , Color.Red)
                 BorderThickness: =3
                 Default: =""
                 Format: =TextFormat.Number
@@ -890,7 +890,7 @@ SolicitudesHerramientas As screen:
                         {
                             Tour: LookUp(
                                 Managers,
-                                Name = Label8_5.Text,
+                                'Name (Title)' = Label8_5.Text,
                                 Tour.Value
                             )
                         },
@@ -926,7 +926,7 @@ SolicitudesHerramientas As screen:
             FontWeight: =FontWeight.Bold
             Height: =39
             Size: =15
-            Text: =LookUp(Managers,Name = User().FullName, Tour.Value) 
+            Text: =LookUp(Managers,'Name (Title)' = User().FullName, Tour.Value) 
             Visible: =false
             Width: =114
             X: =696

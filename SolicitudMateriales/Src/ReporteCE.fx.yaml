@@ -177,7 +177,7 @@ ReporteCE As screen:
                 ),
                 "Product_ID", "Product_Name", 
                 "Prueba"
-            ),Product_Name,Ascending)
+            ),Product_Name,SortOrder.Ascending)
         Layout: =Layout.Vertical
         TemplatePadding: =0
         TemplateSize: =61

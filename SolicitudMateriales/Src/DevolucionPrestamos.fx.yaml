@@ -77,7 +77,7 @@ DevolucionPrestamos As screen:
 
     SearchBoxText_5 As text:
         BorderColor: =RGBA(255, 255, 255, 1)
-        BorderStyle: =Solid
+        BorderStyle: =BorderStyle.Solid
         Color: =RGBA(47, 41, 43, 1)
         Default: =""
         DisabledBorderColor: =RGBA(159, 167, 165, 1)
@@ -110,7 +110,7 @@ DevolucionPrestamos As screen:
         ZIndex: =2
 
     TextBox1_10 As label:
-        Align: =Center
+        Align: =LayoutAlignItems.Center
         Color: =RGBA(255,255,255,1)
         DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
         Fill: =RGBA(152, 208, 70, 1)
@@ -123,7 +123,6 @@ DevolucionPrestamos As screen:
         PressedColor: =TextBox1_10.Color
         PressedFill: =TextBox1_10.Fill
         Text: ="Devoluciones de Herramientas"
-        VerticalAlign: =Middle
         Width: =1366
         ZIndex: =3
 
@@ -226,7 +225,7 @@ DevolucionPrestamos As screen:
             Default: =1
             DisplayMode: |-
                 =//If(TextInput1_1.Visible;DisplayMode.Disabled;DisplayMode.Edit)
-                Disabled
+                DisplayMode.Disabled
             Height: =30
             Width: =40
             X: =219
@@ -263,7 +262,7 @@ DevolucionPrestamos As screen:
         ZIndex: =5
 
     TextBox1_18 As label:
-        Align: =Center
+        Align: =LayoutAlignItems.Center
         Color: =RGBA(255,255,255,1)
         DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
         Fill: =RGBA(152, 208, 70, 1)
@@ -276,14 +275,13 @@ DevolucionPrestamos As screen:
         PressedColor: =TextBox1_18.Color
         PressedFill: =TextBox1_18.Fill
         Text: ="Asignar Equipos " & CountRows(CollectPrestamo)
-        VerticalAlign: =Middle
         Width: =683
         X: =683
         Y: =608
         ZIndex: =6
 
     Button1_17 As button:
-        DisplayMode: =If(IsEmpty(CollectPrestamo),Disabled,Edit)
+        DisplayMode: =If(IsEmpty(CollectPrestamo),DisplayMode.Disabled,DisplayMode.Edit)
         Fill: =RGBA(141, 198, 63, 1)
         HoverFill: =ColorFade(Self.Fill, -15%)
         OnSelect: |-
@@ -562,7 +560,7 @@ DevolucionPrestamos As screen:
                     CorreoAsig,
                     LookUp(
                         Managers,
-                        Name = ComboBox1.Selected.Value,
+                        'Name (Title)' = ComboBox1.Selected.Value,
                         Email
                     )
                 );

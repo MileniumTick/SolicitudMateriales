@@ -106,7 +106,7 @@
                 ZIndex: =5
 
             Subtitle3_1 As label:
-                Color: =If(ThisItem.Quantity < ThisItem.Ideal_Stock,Red,Green)
+                Color: =If(ThisItem.Quantity < ThisItem.Ideal_Stock,Color.Red,Color.Green)
                 DisplayMode: =If(ThisItem in ProductCollect,DisplayMode.Disabled,DisplayMode.Edit)
                 Height: =32
                 OnSelect: =Select(Parent);Collect(ProductCollect,ThisItem)
@@ -220,7 +220,7 @@
                 ZIndex: =6
 
             TextInput4 As text:
-                BorderColor: =If(Value(TextInput4.Text) < ThisItem.Ideal_Stock-ThisItem.Quantity,Red,RGBA(152, 208, 70, 1))
+                BorderColor: =If(Value(TextInput4.Text) < ThisItem.Ideal_Stock-ThisItem.Quantity,Color.Red,RGBA(152, 208, 70, 1))
                 Default: =""
                 Height: =38
                 HintText: ="Cantidad a solicitar"

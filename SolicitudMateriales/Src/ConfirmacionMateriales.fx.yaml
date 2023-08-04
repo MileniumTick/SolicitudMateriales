@@ -144,7 +144,7 @@ ConfirmacionMateriales As screen:
         BorderThickness: =3
         Height: =555
         Items: |
-            =Sort(Filter([@Ordenes],var_CE=Cod_CE,Status="Pendiente",Details="Solicitud"),Product_Name,Ascending)
+            =Sort(Filter([@Ordenes],var_CE=Cod_CE,Status="Pendiente",Details="Solicitud"),Product_Name,SortOrder.Ascending)
         Layout: =Layout.Vertical
         TemplatePadding: =0
         TemplateSize: =80
@@ -245,10 +245,10 @@ ConfirmacionMateriales As screen:
             ZIndex: =6
 
         TextInput3_5 As text:
-            BorderColor: =If(LookUp(Products,ThisItem.Product_ID = Product_ID, Quantity) < ThisItem.Quantity,Red)
+            BorderColor: =If(LookUp(Products,ThisItem.Product_ID = Product_ID, Quantity) < ThisItem.Quantity,Color.Red)
             BorderThickness: =3
             Default: =If(LookUp(Products,ThisItem.Product_ID = Product_ID, Quantity) < ThisItem.Quantity,0,ThisItem.Quantity)
-            FocusedBorderColor: =If(LookUp(Products,ThisItem.Product_ID = Product_ID, Quantity) < ThisItem.Quantity,Red)
+            FocusedBorderColor: =If(LookUp(Products,ThisItem.Product_ID = Product_ID, Quantity) < ThisItem.Quantity,Color.Red)
             FontWeight: =FontWeight.Semibold
             Format: =TextFormat.Number
             Height: =43
@@ -288,7 +288,7 @@ ConfirmacionMateriales As screen:
         ZIndex: =9
 
     Button2_4 As button:
-        DisplayMode: =If(IsBlank(TextInput1_2), Disabled,Edit)
+        DisplayMode: =If(IsBlank(TextInput1_2), DisplayMode.Disabled,DisplayMode.Edit)
         FontWeight: =FontWeight.Bold
         OnSelect: |-
             =UpdateContext({showDialog:true})
@@ -318,7 +318,7 @@ ConfirmacionMateriales As screen:
         FontWeight: =FontWeight.Bold
         Height: =39
         Size: =15
-        Text: =LookUp(Managers,Name = User().FullName, Tour.Value) 
+        Text: =LookUp(Managers,'Name (Title)' = User().FullName, Tour.Value) 
         Visible: =false
         Width: =114
         X: =514
@@ -479,7 +479,7 @@ ConfirmacionMateriales As screen:
                         Correo,
                         LookUp(
                             Managers,
-                            Name = ComboBox2_1.Selected.Name,
+                            'Name (Title)' = ComboBox2_1.Selected.'Name (Title)',
                             Email
                         )
                     )
@@ -637,7 +637,7 @@ ConfirmacionMateriales As screen:
                 ZIndex: =3
 
             Body1_11 As label:
-                Color: =If(ThisItem.Quantity < ThisItem.Ideal_Stock, Red)
+                Color: =If(ThisItem.Quantity < ThisItem.Ideal_Stock, Color.Red)
                 FontWeight: =FontWeight.Semibold
                 Height: =24
                 OnSelect: =Select(Parent)
@@ -796,7 +796,7 @@ ConfirmacionMateriales As screen:
                 ZIndex: =5
 
             TextInput3_9 As text:
-                BorderColor: =If(IsBlank(TextInput3_9.Text) || Value(TextInput3_9.Text) <= 0 , Red)
+                BorderColor: =If(IsBlank(TextInput3_9.Text) || Value(TextInput3_9.Text) <= 0 , Color.Red)
                 BorderThickness: =3
                 Default: =""
                 Format: =TextFormat.Number
@@ -889,7 +889,7 @@ ConfirmacionMateriales As screen:
                         {
                             Tour: LookUp(
                                 Managers,
-                                Name = Label8_2.Text,
+                                'Name (Title)' = Label8_2.Text,
                                 Tour.Value
                             )
                         },
@@ -925,7 +925,7 @@ ConfirmacionMateriales As screen:
             FontWeight: =FontWeight.Bold
             Height: =39
             Size: =15
-            Text: =LookUp(Managers,Name = User().FullName, Tour.Value) 
+            Text: =LookUp(Managers,'Name (Title)' = User().FullName, Tour.Value) 
             Visible: =false
             Width: =114
             X: =696

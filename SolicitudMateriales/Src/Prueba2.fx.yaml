@@ -247,10 +247,10 @@ Prueba2 As screen:
             ZIndex: =6
 
         TextInput3_7 As text:
-            BorderColor: =If(LookUp(Products,ThisItem.Product_ID = Product_ID, Quantity) < ThisItem.Quantity,Red)
+            BorderColor: =If(LookUp(Products,ThisItem.Product_ID = Product_ID, Quantity) < ThisItem.Quantity,Color.Red)
             BorderThickness: =3
             Default: =If(LookUp(Products,ThisItem.Product_ID = Product_ID, Quantity) < ThisItem.Quantity,0,ThisItem.Quantity)
-            FocusedBorderColor: =If(LookUp(Products,ThisItem.Product_ID = Product_ID, Quantity) < ThisItem.Quantity,Red)
+            FocusedBorderColor: =If(LookUp(Products,ThisItem.Product_ID = Product_ID, Quantity) < ThisItem.Quantity,Color.Red)
             FontWeight: =FontWeight.Semibold
             Format: =TextFormat.Number
             Height: =43
@@ -290,7 +290,7 @@ Prueba2 As screen:
         ZIndex: =9
 
     Button2_6 As button:
-        DisplayMode: =If(IsBlank(TextInput1_4), Disabled,Edit)
+        DisplayMode: =If(IsBlank(TextInput1_4), DisplayMode.Disabled,DisplayMode.Edit)
         FontWeight: =FontWeight.Bold
         OnSelect: |-
             =UpdateContext({showDialog:true})
@@ -320,7 +320,7 @@ Prueba2 As screen:
         FontWeight: =FontWeight.Bold
         Height: =39
         Size: =15
-        Text: =LookUp(Managers,Name = User().FullName, Tour.Value) 
+        Text: =LookUp(Managers,'Name (Title)' = User().FullName, Tour.Value) 
         Visible: =false
         Width: =114
         X: =514
@@ -479,7 +479,7 @@ Prueba2 As screen:
                         Correo,
                         LookUp(
                             Managers,
-                            Name = Label8_4.Text,
+                            'Name (Title)' = Label8_4.Text,
                             Email
                         )
                     ));
@@ -630,7 +630,7 @@ Prueba2 As screen:
                 ZIndex: =3
 
             Body1_13 As label:
-                Color: =If(ThisItem.Quantity < ThisItem.Ideal_Stock, Red)
+                Color: =If(ThisItem.Quantity < ThisItem.Ideal_Stock, Color.Red)
                 FontWeight: =FontWeight.Semibold
                 Height: =24
                 OnSelect: =Select(Parent)
@@ -789,7 +789,7 @@ Prueba2 As screen:
                 ZIndex: =5
 
             TextInput3_11 As text:
-                BorderColor: =If(IsBlank(TextInput3_11.Text) || Value(TextInput3_11.Text) <= 0 , Red)
+                BorderColor: =If(IsBlank(TextInput3_11.Text) || Value(TextInput3_11.Text) <= 0 , Color.Red)
                 BorderThickness: =3
                 Default: =""
                 Format: =TextFormat.Number
@@ -882,7 +882,7 @@ Prueba2 As screen:
                         {
                             Tour: LookUp(
                                 Managers,
-                                Name = Label8_3.Text,
+                                'Name (Title)' = Label8_3.Text,
                                 Tour.Value
                             )
                         },
@@ -918,7 +918,7 @@ Prueba2 As screen:
             FontWeight: =FontWeight.Bold
             Height: =39
             Size: =15
-            Text: =LookUp(Managers,Name = User().FullName, Tour.Value) 
+            Text: =LookUp(Managers,'Name (Title)' = User().FullName, Tour.Value) 
             Visible: =false
             Width: =114
             X: =696

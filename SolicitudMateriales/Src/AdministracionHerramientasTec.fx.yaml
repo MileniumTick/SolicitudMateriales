@@ -76,7 +76,7 @@ AdministracionHerramientasTec As screen:
                 DisplayMode: |
                     =//If(ThisItem.Product_ID in CollectPrestamo.Product_ID; Disabled; Edit)
                     //If(ThisItem.Quantity< 0 || ThisItem.ID in CollectSol.ID; Disabled; Edit)
-                    Edit
+                    DisplayMode.Edit
                 Height: =35
                 Icon: =Icon.Add
                 OnSelect: |-
@@ -170,7 +170,7 @@ AdministracionHerramientasTec As screen:
 
     SearchBoxText_2 As text:
         BorderColor: =RGBA(101, 128, 187, 1)
-        BorderStyle: =Solid
+        BorderStyle: =BorderStyle.Solid
         BorderThickness: =0
         Color: =RGBA(47, 41, 43, 1)
         Default: =""
@@ -216,7 +216,6 @@ AdministracionHerramientasTec As screen:
         PressedColor: =TextBox1_9.Color
         PressedFill: =TextBox1_9.Fill
         Text: ="                        Solicitud de Herramientas"
-        VerticalAlign: =Middle
         Width: =1366
         ZIndex: =4
 
@@ -231,7 +230,7 @@ AdministracionHerramientasTec As screen:
         ZIndex: =5
 
     TextBox1_14 As label:
-        Align: =Center
+        Align: =LayoutAlignItems.Center
         Color: =RGBA(255,255,255,1)
         DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
         Fill: =RGBA(152, 208, 70, 1)
@@ -244,21 +243,20 @@ AdministracionHerramientasTec As screen:
         PressedColor: =TextBox1_14.Color
         PressedFill: =TextBox1_14.Fill
         Text: =
-        VerticalAlign: =Middle
         Width: =683
         X: =683
         Y: =648
         ZIndex: =6
 
     Button5_6 As button:
-        DisplayMode: =If(IsEmpty(Collectsol),Disabled,Edit)
+        DisplayMode: =If(IsEmpty(Collectsol),DisplayMode.Disabled,DisplayMode.Edit)
         OnSelect: |-
             =Clear(CCS);
             UpdateContext(
                 {
                     usuariotemp: LookUp(
                         Managers,
-                        Name = User().FullName
+                        'Name (Title)' = User().FullName
                     )
                 }
             );
@@ -418,7 +416,7 @@ AdministracionHerramientasTec As screen:
                         Defaults([@Prestamos]),
                         {
                             Cantidad: ThisRecord.Cantidad,
-                            Manager: usuariotemp.Name,
+                            Manager: usuariotemp.'Name (Title)',
                             Estado: "Pendiente",
                             Detalle: "Solicitud",
                             NSerie: "",

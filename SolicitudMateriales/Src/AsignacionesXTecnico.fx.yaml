@@ -2,7 +2,7 @@ AsignacionesXTecnico As screen:
     OnVisible: =
 
     TextBox1_15 As label:
-        Align: =Center
+        Align: =LayoutAlignItems.Center
         Color: =RGBA(255,255,255,1)
         DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
         Fill: =RGBA(152, 208, 70, 1)
@@ -15,7 +15,6 @@ AsignacionesXTecnico As screen:
         PressedColor: =TextBox1_15.Color
         PressedFill: =TextBox1_15.Fill
         Text: ="Herramientas asignadas por empleado"
-        VerticalAlign: =Middle
         Width: =1366
         ZIndex: =1
 
@@ -174,13 +173,13 @@ AsignacionesXTecnico As screen:
                     DataCardValue55.Value = true,
                     If(
                         IsBlank(DataCardValue9) Or IsBlank(DataCardValue23) Or IsBlank(DataCardValue49.Selected) Or IsBlank(DataCardValue35),
-                        Disabled,
-                        Edit
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
                     ),
                     If(
                         IsBlank(DataCardValue9) Or IsBlank(DataCardValue23) Or IsBlank(DataCardValue49.Selected) Or IsBlank(DataCardValue35),
-                        Disabled,
-                        Edit
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
                     )
                 )
             Fill: =RGBA(141, 198, 63, 1)
@@ -367,7 +366,7 @@ AsignacionesXTecnico As screen:
                     ZIndex: =7
 
             TextBox1_16 As label:
-                Align: =Center
+                Align: =LayoutAlignItems.Center
                 Color: =RGBA(255,255,255,1)
                 DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
                 Fill: =RGBA(152, 208, 70, 1)
@@ -380,7 +379,6 @@ AsignacionesXTecnico As screen:
                 PressedColor: =TextBox1_16.Color
                 PressedFill: =TextBox1_16.Fill
                 Text: ="Equipos Asignados"
-                VerticalAlign: =Middle
                 Width: =523
                 X: =60
                 Y: =60
@@ -402,7 +400,7 @@ AsignacionesXTecnico As screen:
                 ZIndex: =5
 
             TextBox1_17 As label:
-                Align: =Center
+                Align: =LayoutAlignItems.Center
                 Color: =RGBA(255,255,255,1)
                 DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
                 Fill: =RGBA(152, 208, 70, 1)
@@ -415,7 +413,6 @@ AsignacionesXTecnico As screen:
                 PressedColor: =TextBox1_17.Color
                 PressedFill: =TextBox1_17.Fill
                 Text: ="Devolución de Equipo"
-                VerticalAlign: =Middle
                 Width: =643
                 X: =654
                 Y: =60
@@ -441,7 +438,7 @@ AsignacionesXTecnico As screen:
 
             SearchBoxText_4 As text:
                 BorderColor: =RGBA(101, 128, 187, 1)
-                BorderStyle: =Solid
+                BorderStyle: =BorderStyle.Solid
                 BorderThickness: =0
                 Color: =RGBA(47, 41, 43, 1)
                 Default: =""
@@ -505,7 +502,7 @@ AsignacionesXTecnico As screen:
 
         SearchBoxText_3 As text:
             BorderColor: =RGBA(101, 128, 187, 1)
-            BorderStyle: =Solid
+            BorderStyle: =BorderStyle.Solid
             BorderThickness: =0
             Color: =RGBA(47, 41, 43, 1)
             Default: =""

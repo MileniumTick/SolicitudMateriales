@@ -149,7 +149,7 @@ HerramientaEspec As screen:
 
             Image5_3 As image:
                 Height: =188
-                Image: =First(ThisItem.'Datos adjuntos').Value
+                Image: =First(ThisItem.Attachments).Value
                 Width: =215
                 X: =72
                 Y: =9

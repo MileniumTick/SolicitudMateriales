@@ -157,7 +157,7 @@ ConfirmacionDevolucionM As screen:
         BorderColor: =RGBA(141, 198, 63, 1)
         BorderThickness: =3
         Height: =555
-        Items: =Sort(Filter([@Ordenes],var_Cc=Cod_CE,Status="Pendiente",Details="Devolucion"),Product_Name,Ascending)
+        Items: =Sort(Filter([@Ordenes],var_Cc=Cod_CE,Status="Pendiente",Details="Devolucion"),Product_Name,SortOrder.Ascending)
         Layout: =Layout.Vertical
         TemplatePadding: =0
         TemplateSize: =80
@@ -175,8 +175,8 @@ ConfirmacionDevolucionM As screen:
                         Cod_CE = var_Cc && Product_ID = ThisItem.Product_ID && Details = "Solicitud" && Status = "Confirmado",
                         Product_ID
                     ) = ThisItem.Product_ID,
-                    Black,
-                    Red
+                    Color.Black,
+                    Color.Red
                 )
             Height: =27
             OnSelect: =Select(Parent)
@@ -310,7 +310,7 @@ ConfirmacionDevolucionM As screen:
         ZIndex: =9
 
     Button2_5 As button:
-        DisplayMode: =If(IsBlank(TextInput1_3), Disabled,Edit)
+        DisplayMode: =If(IsBlank(TextInput1_3), DisplayMode.Disabled,DisplayMode.Edit)
         FontWeight: =FontWeight.Bold
         OnSelect: |-
             =UpdateContext({showDev: true});
@@ -345,7 +345,7 @@ ConfirmacionDevolucionM As screen:
         FontWeight: =FontWeight.Bold
         Height: =39
         Size: =15
-        Text: =LookUp(Managers,Name = User().FullName, Tour.Value) 
+        Text: =LookUp(Managers,'Name (Title)' = User().FullName, Tour.Value) 
         Visible: =false
         Width: =114
         X: =514
@@ -457,7 +457,7 @@ ConfirmacionDevolucionM As screen:
             ZIndex: =2
 
         Button1_14 As button:
-            DisplayMode: =If(CE = true, If(IsBlank(TextInput7_1),Disabled,Edit))
+            DisplayMode: =If(CE = true, If(IsBlank(TextInput7_1),DisplayMode.Disabled,DisplayMode.Edit))
             Fill: =RGBA(141, 198, 63, 1)
             HoverFill: =ColorFade(Self.Fill, -15%)
             OnSelect: |-
@@ -469,7 +469,7 @@ ConfirmacionDevolucionM As screen:
                     Correo,
                     LookUp(
                         Managers,
-                        Name = ComboBox2.Selected.Name,
+                        'Name (Title)' = ComboBox2.Selected.'Name (Title)',
                         Email
                     )
                 );

@@ -100,7 +100,7 @@ AsignacionDirectaHerramientas As screen:
 
     SearchBoxText_1 As text:
         BorderColor: =RGBA(255, 255, 255, 1)
-        BorderStyle: =Solid
+        BorderStyle: =BorderStyle.Solid
         Color: =RGBA(47, 41, 43, 1)
         Default: =""
         DisabledBorderColor: =RGBA(159, 167, 165, 1)
@@ -133,7 +133,7 @@ AsignacionDirectaHerramientas As screen:
         ZIndex: =2
 
     TextBox1_8 As label:
-        Align: =Center
+        Align: =LayoutAlignItems.Center
         Color: =RGBA(255,255,255,1)
         DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
         Fill: =RGBA(152, 208, 70, 1)
@@ -146,7 +146,6 @@ AsignacionDirectaHerramientas As screen:
         PressedColor: =TextBox1_8.Color
         PressedFill: =TextBox1_8.Fill
         Text: ="Asignar Equipos"
-        VerticalAlign: =Middle
         Width: =1366
         ZIndex: =3
 
@@ -249,7 +248,7 @@ AsignacionDirectaHerramientas As screen:
             Default: =1
             DisplayMode: |-
                 =//If(TextInput1_1.Visible;DisplayMode.Disabled;DisplayMode.Edit)
-                Disabled
+                DisplayMode.Disabled
             Height: =30
             Width: =40
             X: =219
@@ -286,7 +285,7 @@ AsignacionDirectaHerramientas As screen:
         ZIndex: =5
 
     TextBox1_13 As label:
-        Align: =Center
+        Align: =LayoutAlignItems.Center
         Color: =RGBA(255,255,255,1)
         DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
         Fill: =RGBA(152, 208, 70, 1)
@@ -299,14 +298,13 @@ AsignacionDirectaHerramientas As screen:
         PressedColor: =TextBox1_13.Color
         PressedFill: =TextBox1_13.Fill
         Text: ="Asignar Equipos " & CountRows(CollectPrestamo)
-        VerticalAlign: =Middle
         Width: =683
         X: =683
         Y: =608
         ZIndex: =6
 
     Button1_16 As button:
-        DisplayMode: =If(IsEmpty(CollectPrestamo)Or IsBlank(ComboBox1) ,Disabled,Edit)
+        DisplayMode: =If(IsEmpty(CollectPrestamo)Or IsBlank(ComboBox1) ,DisplayMode.Disabled,DisplayMode.Edit)
         Fill: =RGBA(141, 198, 63, 1)
         HoverFill: =ColorFade(Self.Fill, -15%)
         OnSelect: |-
@@ -594,7 +592,7 @@ AsignacionDirectaHerramientas As screen:
                     CorreoAsig,
                     LookUp(
                         Managers,
-                        Name = ComboBox1.Selected.Value,
+                        'Name (Title)' = ComboBox1.Selected.Value,
                         Email
                     )
                 );

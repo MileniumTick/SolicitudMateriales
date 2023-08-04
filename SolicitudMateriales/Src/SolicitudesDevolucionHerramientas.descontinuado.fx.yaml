@@ -2,7 +2,7 @@
     OnVisible: =
 
     TextBox1_19 As label:
-        Align: =Center
+        Align: =LayoutAlignItems.Center
         Color: =RGBA(255,255,255,1)
         DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
         Fill: =RGBA(152, 208, 70, 1)
@@ -15,7 +15,6 @@
         PressedColor: =TextBox1_19.Color
         PressedFill: =TextBox1_19.Fill
         Text: ="Herramientas asignadas por empleado"
-        VerticalAlign: =Middle
         Width: =1366
         ZIndex: =1
 
@@ -136,13 +135,13 @@
                     DataCardValue55.Value = true,
                     If(
                         IsBlank(DataCardValue9) Or IsBlank(DataCardValue23_1) Or IsBlank(DataCardValue49.Selected) Or IsBlank(DataCardValue35),
-                        Disabled,
-                        Edit
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
                     ),
                     If(
                         IsBlank(DataCardValue9) Or IsBlank(DataCardValue23_1) Or IsBlank(DataCardValue49.Selected) Or IsBlank(DataCardValue35),
-                        Disabled,
-                        Edit
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
                     )
                 )
             Fill: =RGBA(141, 198, 63, 1)
@@ -329,7 +328,7 @@
                     ZIndex: =7
 
             TextBox1_20 As label:
-                Align: =Center
+                Align: =LayoutAlignItems.Center
                 Color: =RGBA(255,255,255,1)
                 DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
                 Fill: =RGBA(152, 208, 70, 1)
@@ -342,7 +341,6 @@
                 PressedColor: =TextBox1_20.Color
                 PressedFill: =TextBox1_20.Fill
                 Text: ="Equipos con Solicitud de Devolucion"
-                VerticalAlign: =Middle
                 Width: =523
                 X: =60
                 Y: =60
@@ -364,7 +362,7 @@
                 ZIndex: =5
 
             TextBox1_21 As label:
-                Align: =Center
+                Align: =LayoutAlignItems.Center
                 Color: =RGBA(255,255,255,1)
                 DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
                 Fill: =RGBA(152, 208, 70, 1)
@@ -377,7 +375,6 @@
                 PressedColor: =TextBox1_21.Color
                 PressedFill: =TextBox1_21.Fill
                 Text: ="Devolución de Equipo"
-                VerticalAlign: =Middle
                 Width: =643
                 X: =654
                 Y: =60
@@ -392,7 +389,7 @@
 
             SearchBoxText_6 As text:
                 BorderColor: =RGBA(101, 128, 187, 1)
-                BorderStyle: =Solid
+                BorderStyle: =BorderStyle.Solid
                 BorderThickness: =0
                 Color: =RGBA(47, 41, 43, 1)
                 Default: =""
@@ -456,7 +453,7 @@
 
         SearchBoxText_7 As text:
             BorderColor: =RGBA(101, 128, 187, 1)
-            BorderStyle: =Solid
+            BorderStyle: =BorderStyle.Solid
             BorderThickness: =0
             Color: =RGBA(47, 41, 43, 1)
             Default: =""

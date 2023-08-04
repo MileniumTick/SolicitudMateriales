@@ -1,8 +1,5 @@
 {
   "11ef7eb4-30d4-4043-9bbd-7ec18df39d16": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "Usuarios de Office 365",
@@ -23,12 +20,6 @@
     "id": "11ef7eb4-30d4-4043-9bbd-7ec18df39d16"
   },
   "4f64bb17-cd44-41f1-9505-36243f361170": {
-    "connectionParameters": {
-      "workFlowCallbackUri": "https://prod-182.westus.logic.azure.com:443/workflows/3d1452f7e2bf4c30ba2103c336cb9fa8/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=8_S1Iw_EFTpzGT__lSnoVPQiGzOp_E0habA0JKuyB-A",
-      "workflowEndpoint": "/subscriptions/2e6e5a0a-b35f-4167-82de-61b3afa7d1ec/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-a95f7fbcef504e309b728b84d8cb55ed/providers/Microsoft.Logic/workflows/10e7aed9-3491-458f-a4e4-3d976f3d5fd8",
-      "workflowName": "10e7aed9-3491-458f-a4e4-3d976f3d5fd8",
-      "workflowPath": "/subscriptions/2e6e5a0a-b35f-4167-82de-61b3afa7d1ec/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-a95f7fbcef504e309b728b84d8cb55ed/providers/Microsoft.Logic/workflows/10e7aed9-3491-458f-a4e4-3d976f3d5fd8"
-    },
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "Flujos lógicos",
@@ -71,12 +62,6 @@
     "id": "4f64bb17-cd44-41f1-9505-36243f361170"
   },
   "5c498162-2b90-46c1-bf7c-60fcdb10b61e": {
-    "connectionParameters": {
-      "workFlowCallbackUri": "https://prod-32.westus.logic.azure.com:443/workflows/a91db444bb8c4a959314df3fdd859014/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=3JT6IOlMtd9gXt01X8Y52unmrVH1zZl3QPrGuopIRQU",
-      "workflowEndpoint": "/subscriptions/ce4eb7c9-9c8b-4133-9141-bac869f4b0a7/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-89271fdb989745cb9e10a2dc0c6f59d4/providers/Microsoft.Logic/workflows/c92dc5cb-0a0c-4e4c-a03e-2001c0afb5cb",
-      "workflowName": "c92dc5cb-0a0c-4e4c-a03e-2001c0afb5cb",
-      "workflowPath": "/subscriptions/ce4eb7c9-9c8b-4133-9141-bac869f4b0a7/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-89271fdb989745cb9e10a2dc0c6f59d4/providers/Microsoft.Logic/workflows/c92dc5cb-0a0c-4e4c-a03e-2001c0afb5cb"
-    },
     "connectionRef": {
       "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
@@ -111,12 +96,6 @@
     "id": "5c498162-2b90-46c1-bf7c-60fcdb10b61e"
   },
   "7c1c46c6-b06a-4c6a-a7db-039239714a78": {
-    "connectionParameters": {
-      "workFlowCallbackUri": "https://prod-32.westus.logic.azure.com:443/workflows/96df8d0bce064e0c9f90fa9ed6e89ebf/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=zCmCfcnb0DUyInyxklkKxPZcTmfTFhp7f-2bO478rjc",
-      "workflowEndpoint": "/subscriptions/ce4eb7c9-9c8b-4133-9141-bac869f4b0a7/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-89271fdb989745cb9e10a2dc0c6f59d4/providers/Microsoft.Logic/workflows/395de30f-f924-4a4a-9bcd-dab1aff0dc8f",
-      "workflowName": "395de30f-f924-4a4a-9bcd-dab1aff0dc8f",
-      "workflowPath": "/subscriptions/ce4eb7c9-9c8b-4133-9141-bac869f4b0a7/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-89271fdb989745cb9e10a2dc0c6f59d4/providers/Microsoft.Logic/workflows/395de30f-f924-4a4a-9bcd-dab1aff0dc8f"
-    },
     "connectionRef": {
       "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
@@ -165,12 +144,6 @@
     "id": "7c1c46c6-b06a-4c6a-a7db-039239714a78"
   },
   "7f3dd7b0-b1ac-4e69-9d93-f676bbfe0a78": {
-    "connectionParameters": {
-      "workFlowCallbackUri": "https://prod-119.westus.logic.azure.com:443/workflows/09894b7b8f6d46cab86228a3587e4dc9/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=YOL5HwtA878-4I1xrfdwFEWFD_oLv5dsqQ-qP-xI1ks",
-      "workflowEndpoint": "/subscriptions/2e6e5a0a-b35f-4167-82de-61b3afa7d1ec/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-a95f7fbcef504e309b728b84d8cb55ed/providers/Microsoft.Logic/workflows/a2e0b313-59ba-44f1-973b-4407cc9ffbba",
-      "workflowName": "a2e0b313-59ba-44f1-973b-4407cc9ffbba",
-      "workflowPath": "/subscriptions/2e6e5a0a-b35f-4167-82de-61b3afa7d1ec/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-a95f7fbcef504e309b728b84d8cb55ed/providers/Microsoft.Logic/workflows/a2e0b313-59ba-44f1-973b-4407cc9ffbba"
-    },
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "Flujos lógicos",
@@ -216,9 +189,6 @@
     "id": "7f3dd7b0-b1ac-4e69-9d93-f676bbfe0a78"
   },
   "87f39c66-bcfd-4f1c-b558-b193cf64abf5": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "OneDrive para la Empresa",
@@ -245,12 +215,6 @@
     "id": "87f39c66-bcfd-4f1c-b558-b193cf64abf5"
   },
   "a06360ef-bfc0-450c-b869-167c6a590322": {
-    "connectionParameters": {
-      "workFlowCallbackUri": "https://prod-98.westus.logic.azure.com:443/workflows/2618466d8e234ed2b5e6337f962f7766/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=W9_in8rRsKDvOhj2tY4IsTz0-ITo5a_YbmuE2iDKtOU",
-      "workflowEndpoint": "/subscriptions/ce4eb7c9-9c8b-4133-9141-bac869f4b0a7/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-89271fdb989745cb9e10a2dc0c6f59d4/providers/Microsoft.Logic/workflows/d089db30-3ef2-4149-b606-5c17704870c3",
-      "workflowName": "d089db30-3ef2-4149-b606-5c17704870c3",
-      "workflowPath": "/subscriptions/ce4eb7c9-9c8b-4133-9141-bac869f4b0a7/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-89271fdb989745cb9e10a2dc0c6f59d4/providers/Microsoft.Logic/workflows/d089db30-3ef2-4149-b606-5c17704870c3"
-    },
     "connectionRef": {
       "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
@@ -292,12 +256,6 @@
     "id": "a06360ef-bfc0-450c-b869-167c6a590322"
   },
   "a47a348b-6f7b-443f-afce-c7842bd0d2d3": {
-    "connectionParameters": {
-      "workFlowCallbackUri": "https://prod-22.westus.logic.azure.com:443/workflows/56b891c9f0f84fef80d0f649daf6fc3c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=lbLfOagw6-sBM-t2wSrb5y4-z7-7DpDj0RhDT1pJsHE",
-      "workflowEndpoint": "/subscriptions/2e6e5a0a-b35f-4167-82de-61b3afa7d1ec/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-d23973d2b449474f82915a83669fa152/providers/Microsoft.Logic/workflows/5246cd68-1083-45a4-ba2c-5acd96ad1ad3",
-      "workflowName": "5246cd68-1083-45a4-ba2c-5acd96ad1ad3",
-      "workflowPath": "/subscriptions/2e6e5a0a-b35f-4167-82de-61b3afa7d1ec/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-d23973d2b449474f82915a83669fa152/providers/Microsoft.Logic/workflows/5246cd68-1083-45a4-ba2c-5acd96ad1ad3"
-    },
     "connectionRef": {
       "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
@@ -339,23 +297,29 @@
     "id": "a47a348b-6f7b-443f-afce-c7842bd0d2d3"
   },
   "acacc35f-1a7a-4282-ba55-e3fe7ed73536": {
-    "connectionParameters": {
-      "workFlowCallbackUri": "https://prod-05.westus.logic.azure.com:443/workflows/c85624290b3d4468b08d7b8e0f66c107/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=YU-BMzqixrCnq_hFW_WRFsZ4-q68DEzazr01eu6eXdY",
-      "workflowEndpoint": "/subscriptions/ce4eb7c9-9c8b-4133-9141-bac869f4b0a7/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-89271fdb989745cb9e10a2dc0c6f59d4/providers/Microsoft.Logic/workflows/378d1b76-89f9-4a1f-a40d-3d64d1804f86",
-      "workflowName": "378d1b76-89f9-4a1f-a40d-3d64d1804f86",
-      "workflowPath": "/subscriptions/ce4eb7c9-9c8b-4133-9141-bac869f4b0a7/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-89271fdb989745cb9e10a2dc0c6f59d4/providers/Microsoft.Logic/workflows/378d1b76-89f9-4a1f-a40d-3d64d1804f86"
-    },
     "connectionRef": {
       "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
       "parameterHints": {
+        "87f39c66-bcfd-4f1c-b558-b193cf64abf5": {
+          "value": "shared_onedriveforbusiness"
+        },
+        "fc2bf816-54ac-4f7f-bed7-aa6e7684977d": {
+          "value": "shared_office365"
+        },
         "workflowEntityId": {},
         "workflowName": {
           "value": "378d1b76-89f9-4a1f-a40d-3d64d1804f86"
         }
       },
       "parameterHintsV2": {
+        "shared_office365": {
+          "value": "fc2bf816-54ac-4f7f-bed7-aa6e7684977d"
+        },
+        "shared_onedriveforbusiness": {
+          "value": "87f39c66-bcfd-4f1c-b558-b193cf64abf5"
+        },
         "workflowEntityId": {},
         "workflowName": {
           "value": "378d1b76-89f9-4a1f-a40d-3d64d1804f86"
@@ -374,9 +338,6 @@
     "id": "acacc35f-1a7a-4282-ba55-e3fe7ed73536"
   },
   "c32961ce-af32-4d81-b9c2-d8657d07b54f": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "SharePoint",
@@ -427,9 +388,6 @@
     "id": "c32961ce-af32-4d81-b9c2-d8657d07b54f"
   },
   "c7311f8d-45f9-4d50-8b81-697b6465c8d3": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "SharePoint",
@@ -455,12 +413,6 @@
     "id": "c7311f8d-45f9-4d50-8b81-697b6465c8d3"
   },
   "eb9e7c6c-f96e-4ac5-9084-6e6daeb277d3": {
-    "connectionParameters": {
-      "workFlowCallbackUri": "https://prod-183.westus.logic.azure.com:443/workflows/91a6fec2e9ea4867bc5cc26b1fb074c4/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=apbjFw8t2m9A9du83FYXmv5Zy7T0eVjo9gycywSW_xg",
-      "workflowEndpoint": "/subscriptions/2e6e5a0a-b35f-4167-82de-61b3afa7d1ec/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-a95f7fbcef504e309b728b84d8cb55ed/providers/Microsoft.Logic/workflows/eafdf7eb-400a-4b55-b8a3-1232834ac26b",
-      "workflowName": "eafdf7eb-400a-4b55-b8a3-1232834ac26b",
-      "workflowPath": "/subscriptions/2e6e5a0a-b35f-4167-82de-61b3afa7d1ec/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-a95f7fbcef504e309b728b84d8cb55ed/providers/Microsoft.Logic/workflows/eafdf7eb-400a-4b55-b8a3-1232834ac26b"
-    },
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "Flujos lógicos",
@@ -496,12 +448,6 @@
     "id": "eb9e7c6c-f96e-4ac5-9084-6e6daeb277d3"
   },
   "eec7c9a0-0d5f-4846-997c-495c7a5cd67f": {
-    "connectionParameters": {
-      "workFlowCallbackUri": "https://prod-133.westus.logic.azure.com:443/workflows/38ac0878721247968c40ac2daba22a59/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=1fVZobZSGhgF4XsxyZDA4aydqdMWxQibRqIeoL-G1Jk",
-      "workflowEndpoint": "/subscriptions/ce4eb7c9-9c8b-4133-9141-bac869f4b0a7/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-89271fdb989745cb9e10a2dc0c6f59d4/providers/Microsoft.Logic/workflows/c8b989d2-bf13-4285-b7e2-829256fa4849",
-      "workflowName": "c8b989d2-bf13-4285-b7e2-829256fa4849",
-      "workflowPath": "/subscriptions/ce4eb7c9-9c8b-4133-9141-bac869f4b0a7/resourceGroups/9b3f2b04217f4a679ae9469df4e56e45-89271fdb989745cb9e10a2dc0c6f59d4/providers/Microsoft.Logic/workflows/c8b989d2-bf13-4285-b7e2-829256fa4849"
-    },
     "connectionRef": {
       "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
@@ -543,9 +489,6 @@
     "id": "eec7c9a0-0d5f-4846-997c-495c7a5cd67f"
   },
   "f5504f5b-626b-49e6-b728-6e2827bc557d": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "displayName": "Excel",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1570/1.0.1570.2764/excel/icon.png",
@@ -570,9 +513,6 @@
     "id": "f5504f5b-626b-49e6-b728-6e2827bc557d"
   },
   "fc2bf816-54ac-4f7f-bed7-aa6e7684977d": {
-    "connectionParameters": {
-      "sku": "Enterprise"
-    },
     "connectionRef": {
       "apiTier": "Standard",
       "displayName": "Office\u00A0365 Outlook",

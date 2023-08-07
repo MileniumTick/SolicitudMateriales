@@ -68,7 +68,7 @@ SolicitudMateriales As screen:
 
         Image1_5 As image:
             Height: =80
-            Image: =If(ThisItem.'Has attachments' = true,First(ThisItem.Attachments).Value,ThisItem.Product_Img)
+            Image: =If(ThisItem.'Tiene datos adjuntos' = true,First(ThisItem.'Datos adjuntos').Value,ThisItem.Product_Img)
             OnSelect: =Select(Parent)
             Width: =80
             X: =36
@@ -401,7 +401,7 @@ SolicitudMateriales As screen:
         FontWeight: =FontWeight.Bold
         Height: =39
         Size: =15
-        Text: =LookUp(Managers,'Name (Title)' = User().FullName, Tour.Value) 
+        Text: =LookUp(Managers,Name = User().FullName, Tour.Value) 
         Visible: =false
         Width: =114
         X: =696
@@ -529,7 +529,7 @@ SolicitudMateriales As screen:
                                 {
                                     Tour: LookUp(
                                         Managers,
-                                        'Name (Title)' = User().FullName,
+                                        Name = User().FullName,
                                         Tour.Value
                                     ),
                                     Product_Name: Title1_18.Text,
@@ -551,7 +551,7 @@ SolicitudMateriales As screen:
                                 {
                                     Tour: LookUp(
                                         Managers,
-                                        'Name (Title)' = User().FullName,
+                                        Name = User().FullName,
                                         Tour.Value
                                     ),
                                     Product_Name: Title1_18.Text,
@@ -879,7 +879,7 @@ SolicitudMateriales As screen:
 
             Image1_7 As image:
                 Height: =80
-                Image: =If(ThisItem.'Has attachments' = true,First(ThisItem.Attachments).Value,ThisItem.Product_Img)
+                Image: =If(ThisItem.'Tiene datos adjuntos' = true,First(ThisItem.'Datos adjuntos').Value,ThisItem.Product_Img)
                 OnSelect: =Select(Parent)
                 Width: =80
                 X: =36

@@ -318,7 +318,7 @@ ConfirmacionMateriales As screen:
         FontWeight: =FontWeight.Bold
         Height: =39
         Size: =15
-        Text: =LookUp(Managers,'Name (Title)' = User().FullName, Tour.Value) 
+        Text: =LookUp(Managers,Name = User().FullName, Tour.Value) 
         Visible: =false
         Width: =114
         X: =514
@@ -479,7 +479,7 @@ ConfirmacionMateriales As screen:
                         Correo,
                         LookUp(
                             Managers,
-                            'Name (Title)' = ComboBox2_1.Selected.'Name (Title)',
+                            Name = ComboBox2_1.Selected.Name,
                             Email
                         )
                     )
@@ -889,7 +889,7 @@ ConfirmacionMateriales As screen:
                         {
                             Tour: LookUp(
                                 Managers,
-                                'Name (Title)' = Label8_2.Text,
+                                Name = Label8_2.Text,
                                 Tour.Value
                             )
                         },
@@ -925,7 +925,7 @@ ConfirmacionMateriales As screen:
             FontWeight: =FontWeight.Bold
             Height: =39
             Size: =15
-            Text: =LookUp(Managers,'Name (Title)' = User().FullName, Tour.Value) 
+            Text: =LookUp(Managers,Name = User().FullName, Tour.Value) 
             Visible: =false
             Width: =114
             X: =696

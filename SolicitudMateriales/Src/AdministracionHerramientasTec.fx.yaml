@@ -256,7 +256,7 @@ AdministracionHerramientasTec As screen:
                 {
                     usuariotemp: LookUp(
                         Managers,
-                        'Name (Title)' = User().FullName
+                        Name = User().FullName
                     )
                 }
             );
@@ -416,7 +416,7 @@ AdministracionHerramientasTec As screen:
                         Defaults([@Prestamos]),
                         {
                             Cantidad: ThisRecord.Cantidad,
-                            Manager: usuariotemp.'Name (Title)',
+                            Manager: usuariotemp.Name,
                             Estado: "Pendiente",
                             Detalle: "Solicitud",
                             NSerie: "",

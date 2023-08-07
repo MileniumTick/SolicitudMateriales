@@ -252,7 +252,7 @@ SolicitudHerramientas_Backup As screen:
         DisplayMode: =If(IsEmpty(Collectsol),DisplayMode.Disabled,DisplayMode.Edit)
         OnSelect: |+
             =Clear(CCS);
-            UpdateContext({usuariotemp: LookUp(Managers,'Name (Title)'=User().FullName)});
+            UpdateContext({usuariotemp: LookUp(Managers,Name=User().FullName)});
             
             ForAll(
                 Collectsol,
@@ -411,7 +411,7 @@ SolicitudHerramientas_Backup As screen:
                         Defaults([@Prestamos]),
                         {
                             Cantidad: ThisRecord.Cantidad,
-                            Manager: usuariotemp.'Name (Title)',
+                            Manager: usuariotemp.Name,
                             Estado: "Pendiente",
                             Detalle: "Solicitud",
                             NSerie: "",

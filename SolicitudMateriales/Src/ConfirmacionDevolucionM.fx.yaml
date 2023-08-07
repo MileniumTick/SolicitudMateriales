@@ -345,7 +345,7 @@ ConfirmacionDevolucionM As screen:
         FontWeight: =FontWeight.Bold
         Height: =39
         Size: =15
-        Text: =LookUp(Managers,'Name (Title)' = User().FullName, Tour.Value) 
+        Text: =LookUp(Managers,Name = User().FullName, Tour.Value) 
         Visible: =false
         Width: =114
         X: =514
@@ -469,7 +469,7 @@ ConfirmacionDevolucionM As screen:
                     Correo,
                     LookUp(
                         Managers,
-                        'Name (Title)' = ComboBox2.Selected.'Name (Title)',
+                        Name = ComboBox2.Selected.Name,
                         Email
                     )
                 );

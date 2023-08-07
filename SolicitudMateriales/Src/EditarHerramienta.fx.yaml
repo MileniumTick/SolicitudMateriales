@@ -293,7 +293,7 @@ EditarHerramienta As screen:
         "'Datos adjuntos_DataCard1' As typedDataCard.attachmentsEditCard":
             BorderStyle: =BorderStyle.Solid
             DataField: ="{Attachments}"
-            Default: =ThisItem.Attachments
+            Default: =ThisItem.'Datos adjuntos'
             DisplayMode: =Parent.DisplayMode
             DisplayName: =DataSourceInfo([@Herramientas],DataSourceInfo.DisplayName,"{Attachments}")
             Fill: =RGBA(0, 0, 0, 0)

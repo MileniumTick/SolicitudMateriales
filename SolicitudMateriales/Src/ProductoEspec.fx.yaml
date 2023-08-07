@@ -87,7 +87,7 @@ ProductoEspec As screen:
 
             Image5 As image:
                 Height: =188
-                Image: =If(ThisItem.'Has attachments',First(ThisItem.Attachments).Value,ThisItem.Product_Img)
+                Image: =If(ThisItem.'Tiene datos adjuntos',First(ThisItem.'Datos adjuntos').Value,ThisItem.Product_Img)
                 Width: =215
                 X: =72
                 Y: =9

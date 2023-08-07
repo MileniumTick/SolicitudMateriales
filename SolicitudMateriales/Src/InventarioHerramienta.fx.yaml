@@ -31,7 +31,7 @@ InventarioHerramienta As screen:
 
         Image2_12 As image:
             Height: =84
-            Image: =First(ThisItem.Attachments).Value
+            Image: =First(ThisItem.'Datos adjuntos').Value
             OnSelect: =Select(Parent)
             Width: =99
             X: =16

@@ -401,7 +401,7 @@ Prueba As screen:
         FontWeight: =FontWeight.Bold
         Height: =39
         Size: =15
-        Text: =LookUp(Managers,'Name (Title)' = User().FullName, Tour.Value) 
+        Text: =LookUp(Managers,Name = User().FullName, Tour.Value) 
         Visible: =false
         Width: =114
         X: =696
@@ -529,7 +529,7 @@ Prueba As screen:
                                 {
                                     Tour: LookUp(
                                         Managers,
-                                        'Name (Title)' = User().FullName,
+                                        Name = User().FullName,
                                         Tour.Value
                                     )
                                 },
@@ -551,7 +551,7 @@ Prueba As screen:
                                 {
                                     Tour: LookUp(
                                         Managers,
-                                        'Name (Title)' = User().FullName,
+                                        Name = User().FullName,
                                         Tour.Value
                                     )
                                 },

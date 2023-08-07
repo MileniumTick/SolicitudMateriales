@@ -560,7 +560,7 @@ DevolucionPrestamos As screen:
                     CorreoAsig,
                     LookUp(
                         Managers,
-                        'Name (Title)' = ComboBox1.Selected.Value,
+                        Name = ComboBox1.Selected.Value,
                         Email
                     )
                 );

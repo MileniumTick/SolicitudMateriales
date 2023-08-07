@@ -10,7 +10,7 @@ ReporteCE As screen:
         Layout: =Layout.Vertical
         TemplatePadding: =0
         TemplateSize: =112
-        Width: =382
+        Width: =324
         Y: =66
         ZIndex: =2
 
@@ -24,35 +24,34 @@ ReporteCE As screen:
             ZIndex: =2
 
         Subtitle2_10 As label:
-            Align: =Align.Center
             Height: =44
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            Size: =13
             Text: |+
                 ="Productos Utilizados (" & CountRows(Filter(ThisItem.DATA_I,Details = "Solicitud",Status = "Confirmado"))&")"
                 
             VerticalAlign: =VerticalAlign.Top
-            Width: =324
+            Width: =219
             X: =14
             Y: =67
             ZIndex: =5
 
         Title1_23 As label:
-            Align: =Align.Center
             Height: =41
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Size: =18
+            Size: =13
             Text: |-
                 ="Centro Educativo: " & ThisItem.Cod_CE
             VerticalAlign: =VerticalAlign.Top
-            Width: =333
+            Width: =219
             X: =14
             Y: =26
             ZIndex: =7
@@ -75,7 +74,7 @@ ReporteCE As screen:
             TabIndex: =0
             Tooltip: ="Ver los detalles del elemento"
             Width: =60
-            X: =324
+            X: =264
             Y: =26
             ZIndex: =8
 
@@ -90,8 +89,8 @@ ReporteCE As screen:
         Size: =20
         Text: |-
             ="Proyecto: " & info & " - Cantidad de Productos: "& CountRows(Gallery3_1.AllItems)
-        Width: =954
-        X: =412
+        Width: =1036
+        X: =330
         ZIndex: =3
 
     Label1_10 As label:
@@ -104,7 +103,7 @@ ReporteCE As screen:
         Height: =64
         Size: =30
         Text: =
-        Width: =383
+        Width: =326
         ZIndex: =4
 
     SearchBox_12 As text:
@@ -113,7 +112,7 @@ ReporteCE As screen:
         Height: =46
         HintText: ="Buscador de CE"
         Width: =217
-        X: =154
+        X: =53
         Y: =9
         ZIndex: =5
 
@@ -121,9 +120,13 @@ ReporteCE As screen:
         Color: =RGBA(255, 255, 255, 1)
         Height: =40
         Icon: =Icon.Search
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
         Width: =40
-        X: =102
-        Y: =12
+        X: =274
+        Y: =14
         ZIndex: =6
 
     Icon4_18 As icon.Cancel:
@@ -137,8 +140,11 @@ ReporteCE As screen:
                 ScreenTransition.None
             );
             Reset(SearchBox_12);
+        PaddingBottom: =10
+        PaddingRight: =10
+        PaddingTop: =10
         Width: =55
-        X: =7
+        X: =2
         Y: =6
         ZIndex: =7
 
@@ -184,8 +190,8 @@ ReporteCE As screen:
         Layout: =Layout.Vertical
         TemplatePadding: =0
         TemplateSize: =61
-        Width: =954
-        X: =412
+        Width: =1036
+        X: =330
         Y: =100
         ZIndex: =9
 
@@ -197,7 +203,7 @@ ReporteCE As screen:
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Size: =16
+            Size: =13
             Text: =ThisItem.Product_ID
             VerticalAlign: =VerticalAlign.Top
             Width: =119
@@ -211,10 +217,10 @@ ReporteCE As screen:
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Size: =16
+            Size: =13
             Text: =ThisItem.Product_Name
             VerticalAlign: =VerticalAlign.Top
-            Width: =351
+            Width: =210
             X: =141
             Y: =8
             ZIndex: =3
@@ -235,64 +241,69 @@ ReporteCE As screen:
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            Size: =13
             Text: =Sum(ThisItem.Prueba, Quantity)
             VerticalAlign: =VerticalAlign.Top
             Width: =110
-            X: =824
-            Y: =12
+            X: =612
+            Y: =15
             ZIndex: =6
 
         Separator1_2 As rectangle:
             Height: =60
             OnSelect: =Select(Parent)
             Width: =1
-            X: =794
+            X: =590
+            Y: =1
             ZIndex: =7
 
         Separator1_3 As rectangle:
             Height: =60
             OnSelect: =Select(Parent)
             Width: =1
-            X: =491
+            X: =360
             ZIndex: =8
 
         Separator1_4 As rectangle:
             Height: =60
             OnSelect: =Select(Parent)
             Width: =1
-            X: =642
+            X: =457
+            Y: =1
             ZIndex: =9
 
         Subtitle1_4 As label:
             Align: =Align.Center
             FontWeight: =FontWeight.Semibold
-            Height: =32
+            Height: =33
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            Size: =13
             Text: =Sum(Filter(ThisItem.Prueba,"Solicitud" = Details && ThisItem.Product_ID = Title1_1.Text),Quantity)
             VerticalAlign: =VerticalAlign.Top
-            Width: =110
-            X: =512
-            Y: =15
+            Width: =97
+            X: =361
+            Y: =14
             ZIndex: =10
 
         Subtitle1_5 As label:
             Align: =Align.Center
             FontWeight: =FontWeight.Semibold
-            Height: =32
+            Height: =37
             OnSelect: =Select(Parent)
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            Size: =13
             Text: =Sum(Filter(ThisItem.Prueba, "Devolucion" = Details && ThisItem.Product_ID = Title1_1.Text),Quantity)
             VerticalAlign: =VerticalAlign.Top
-            Width: =110
-            X: =653
-            Y: =12
+            Width: =132
+            X: =458
+            Y: =13
             ZIndex: =11
 
         Subtitle1_6 As label:
@@ -304,29 +315,62 @@ ReporteCE As screen:
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Text: =LookUp(Products, Product_ID= Title1_1.Text).Product_Detail
+            Size: =13
+            Text: =LookUp(Products, Product_ID= Title1_1.Text).Costo_compra
             VerticalAlign: =VerticalAlign.Top
-            Width: =196
-            X: =653
-            Y: =28
+            Width: =164
+            X: =758
+            Y: =14
             ZIndex: =12
 
+        Separator1_9 As rectangle:
+            Height: =60
+            OnSelect: =Select(Parent)
+            Width: =1
+            X: =757
+            Y: =1
+            ZIndex: =13
+
+        Separator1_33 As rectangle:
+            Height: =60
+            OnSelect: =Select(Parent)
+            Width: =1
+            X: =922
+            ZIndex: =14
+
+        Subtitle1_23 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =33
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =13
+            Text: |
+                =//Sum(Gallery3_1; Prueba.Quantity * Costo_compra)
+            VerticalAlign: =VerticalAlign.Top
+            Width: =113
+            X: =922
+            Y: =17
+            ZIndex: =15
+
     Rectangle2_1 As rectangle:
-        Height: =36
+        Height: =38
         OnSelect: =
-        Width: =954
-        X: =412
+        Width: =1036
+        X: =330
         Y: =64
         ZIndex: =10
 
     Label6_5 As label:
         Color: =RGBA(255, 255, 255, 1)
-        Height: =38
+        Height: =35
         OnSelect: =
         Text: ="Cantidad Utilizada" 
         Width: =160
-        X: =1205
-        Y: =64
+        X: =919
+        Y: =67
         ZIndex: =11
 
     Label6_6 As label:
@@ -336,8 +380,8 @@ ReporteCE As screen:
         OnSelect: =
         Text: ="Nombre del Producto" 
         Width: =239
-        X: =582
-        Y: =64
+        X: =441
+        Y: =65
         ZIndex: =12
 
     Label6_7 As label:
@@ -347,19 +391,19 @@ ReporteCE As screen:
         OnSelect: =
         Text: ="Codigo" 
         Width: =111
-        X: =412
+        X: =330
         Y: =66
         ZIndex: =13
 
     Label6_8 As label:
         Align: =Align.Center
         Color: =RGBA(255, 255, 255, 1)
-        Height: =38
+        Height: =34
         OnSelect: =
         Text: ="Solicitud"
-        Width: =151
-        X: =905
-        Y: =64
+        Width: =99
+        X: =690
+        Y: =67
         ZIndex: =14
 
     Label6_9 As label:
@@ -368,8 +412,29 @@ ReporteCE As screen:
         Height: =38
         OnSelect: =
         Text: ="Devolución"
-        Width: =149
-        X: =1056
+        Width: =130
+        X: =789
         Y: =64
         ZIndex: =15
+
+    Label6_19 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =33
+        OnSelect: =
+        Text: ="Costo de compra" 
+        Width: =160
+        X: =1089
+        Y: =67
+        ZIndex: =16
+
+    Label6_20 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =33
+        OnSelect: =
+        Text: ="Total" 
+        Width: =117
+        X: =1249
+        Y: =67
+        ZIndex: =17
 

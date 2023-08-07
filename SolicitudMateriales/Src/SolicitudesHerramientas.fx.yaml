@@ -319,7 +319,7 @@ SolicitudesHerramientas As screen:
         FontWeight: =FontWeight.Bold
         Height: =39
         Size: =15
-        Text: =LookUp(Managers,'Name (Title)' = User().FullName, Tour.Value) 
+        Text: =LookUp(Managers,Name = User().FullName, Tour.Value) 
         Visible: =false
         Width: =114
         X: =514
@@ -481,7 +481,7 @@ SolicitudesHerramientas As screen:
                         Correo,
                         LookUp(
                             Managers,
-                            'Name (Title)' = Label8_6.Text,
+                            Name = Label8_6.Text,
                             Email
                         )
                     )
@@ -890,7 +890,7 @@ SolicitudesHerramientas As screen:
                         {
                             Tour: LookUp(
                                 Managers,
-                                'Name (Title)' = Label8_5.Text,
+                                Name = Label8_5.Text,
                                 Tour.Value
                             )
                         },
@@ -926,7 +926,7 @@ SolicitudesHerramientas As screen:
             FontWeight: =FontWeight.Bold
             Height: =39
             Size: =15
-            Text: =LookUp(Managers,'Name (Title)' = User().FullName, Tour.Value) 
+            Text: =LookUp(Managers,Name = User().FullName, Tour.Value) 
             Visible: =false
             Width: =114
             X: =696

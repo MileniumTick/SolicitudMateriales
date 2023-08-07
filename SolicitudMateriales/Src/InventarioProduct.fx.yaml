@@ -108,7 +108,7 @@ InventarioProduct As screen:
             Color: =RGBA(99, 139, 44, 1)
             Fill: =RGBA(255, 255, 255, 1)
             FocusedBorderColor: =RGBA(255, 255, 255, 1)
-            Height: =60
+            Height: =50
             Icon: =Icon.ChevronRight
             OnSelect: =Select(Parent)
             PaddingBottom: =10
@@ -117,7 +117,7 @@ InventarioProduct As screen:
             PaddingTop: =10
             TabIndex: =0
             Tooltip: ="Ver los detalles del elemento"
-            Width: =60
+            Width: =48
             X: =609
             Y: =40
             ZIndex: =8
@@ -138,6 +138,10 @@ InventarioProduct As screen:
         Height: =55
         Icon: =Icon.Add
         OnSelect: =NewForm(Form1);Navigate(EditarProduct, ScreenTransition.None); Set(_hide,false)
+        PaddingBottom: =15
+        PaddingLeft: =15
+        PaddingRight: =15
+        PaddingTop: =15
         Width: =55
         X: =1303
         Y: =2
@@ -148,6 +152,10 @@ InventarioProduct As screen:
         DisplayMode: =DisplayMode.View
         Height: =55
         Icon: =Icon.Search
+        PaddingBottom: =15
+        PaddingLeft: =15
+        PaddingRight: =15
+        PaddingTop: =15
         Width: =55
         X: =1012
         Y: =5
@@ -161,6 +169,10 @@ InventarioProduct As screen:
         OnSelect: |-
             =Refresh(Products);
             Navigate(HomePage, ScreenTransition.None)
+        PaddingBottom: =15
+        PaddingLeft: =15
+        PaddingRight: =15
+        PaddingTop: =15
         Width: =55
         X: =8
         Y: =5

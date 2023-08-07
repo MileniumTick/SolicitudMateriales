@@ -27,6 +27,75 @@ EditarProduct As screen:
         Y: =114
         ZIndex: =2
 
+        Costo_Compra_Materiales_DataCard2 As typedDataCard.numberEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Costo_Compra_Materiales"
+            Default: =ThisItem.Costo_Compra_Materiales
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Products],DataSourceInfo.DisplayName,"Costo_Compra_Materiales")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =Value(DataCardValue12.Text)
+            Width: =578
+            X: =1
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey12 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: |-
+                    =//Parent.DisplayName
+                    "Costo de compra"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue12 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Format: =TextFormat.Number
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey12.Y + DataCardKey12.Height + 5
+                ZIndex: =2
+
+            ErrorMessage12 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue12.Y + DataCardValue12.Height
+                ZIndex: =3
+
+            StarVisible12 As label:
+                Align: =Align.Center
+                Height: =DataCardKey12.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey12.Y
+                ZIndex: =4
+
         Product_ID_DataCard1 As typedDataCard.textualEditCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="Code"
@@ -107,7 +176,7 @@ EditarProduct As screen:
             Update: =Value(DataCardValue2.Text)
             Width: =578
             X: =0
-            Y: =3
+            Y: =4
             ZIndex: =1
 
             DataCardKey2 As label:
@@ -174,7 +243,7 @@ EditarProduct As screen:
             Update: =DataCardValue7.Attachments
             Width: =578
             X: =1
-            Y: =3
+            Y: =4
             ZIndex: =1
 
             DataCardKey7 As label:
@@ -309,7 +378,7 @@ EditarProduct As screen:
             Update: =DataCardValue5.Text
             Width: =578
             X: =1
-            Y: =0
+            Y: =1
             ZIndex: =3
 
             DataCardKey5 As label:
@@ -375,8 +444,8 @@ EditarProduct As screen:
             Required: =true
             Update: =Value(DataCardValue6.Text)
             Width: =578
-            X: =1
-            Y: =1
+            X: =0
+            Y: =2
             ZIndex: =3
 
             DataCardKey6 As label:
@@ -443,7 +512,7 @@ EditarProduct As screen:
             Required: =false
             Update: =DataCardValue14.Selected
             Width: =578
-            X: =0
+            X: =1
             Y: =2
             ZIndex: =3
 
@@ -509,8 +578,8 @@ EditarProduct As screen:
             Required: =true
             Update: =Value(DataCardValue17.Text)
             Width: =578
-            X: =1
-            Y: =2
+            X: =0
+            Y: =3
             ZIndex: =3
 
             DataCardKey17 As label:
@@ -579,7 +648,7 @@ EditarProduct As screen:
             Update: =DataCardValue15.Text
             Width: =578
             X: =1
-            Y: =2
+            Y: =3
             ZIndex: =3
 
             DataCardKey15 As label:
@@ -643,6 +712,10 @@ EditarProduct As screen:
         Icon: =Icon.Check
         OnSelect: |-
             =UpdateContext({showDialog:true})
+        PaddingBottom: =15
+        PaddingLeft: =15
+        PaddingRight: =15
+        PaddingTop: =15
         Width: =60
         X: =1298
         ZIndex: =3
@@ -653,6 +726,10 @@ EditarProduct As screen:
         Height: =60
         Icon: =Icon.Cancel
         OnSelect: =ResetForm(Form1); Back()
+        PaddingBottom: =15
+        PaddingLeft: =15
+        PaddingRight: =15
+        PaddingTop: =15
         Width: =60
         X: =8
         ZIndex: =4

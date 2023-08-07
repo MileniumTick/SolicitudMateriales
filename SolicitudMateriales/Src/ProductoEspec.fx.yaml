@@ -29,6 +29,10 @@ ProductoEspec As screen:
         Height: =55
         Icon: =Icon.Edit
         OnSelect: =EditForm(Form1);Navigate(EditarProduct, ScreenTransition.None); Set(_hide,true)
+        PaddingBottom: =15
+        PaddingLeft: =15
+        PaddingRight: =15
+        PaddingTop: =15
         Width: =55
         X: =1303
         Y: =5
@@ -40,8 +44,12 @@ ProductoEspec As screen:
         Height: =55
         Icon: =Icon.Trash
         OnSelect: =Remove([@Products], Gallery1.Selected); If (IsEmpty(Errors([@Products], Gallery1.Selected)), Back())
+        PaddingBottom: =15
+        PaddingLeft: =15
+        PaddingRight: =15
+        PaddingTop: =15
         Width: =55
-        X: =1229
+        X: =1239
         Y: =5
         ZIndex: =4
 
@@ -70,6 +78,46 @@ ProductoEspec As screen:
         X: =158
         Y: =101
         ZIndex: =7
+
+        Costo_Compra_Materiales_DataCard1 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Costo_Compra_Materiales"
+            Default: =ThisItem.Costo_Compra_Materiales
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@Products],DataSourceInfo.DisplayName,"Costo_Compra_Materiales")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =376
+            X: =2
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey10 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                Height: =34
+                Text: |-
+                    =//Parent.DisplayName
+                    "Costo de compra"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue10 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey10.Y + DataCardKey10.Height + 5
+                ZIndex: =2
 
         Product_Img_DataCard3 As typedDataCard.textualViewCard:
             BorderStyle: =BorderStyle.Solid
@@ -132,45 +180,6 @@ ProductoEspec As screen:
                 Y: =DataCardKey37.Y + DataCardKey37.Height + 5
                 ZIndex: =2
 
-        Product_Detail_DataCard3 As typedDataCard.textualViewCard:
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="Product_Detail"
-            Default: =ThisItem.Product_Detail
-            DisplayMode: =DisplayMode.View
-            DisplayName: ="Product_Detail"
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =40
-            Required: =false
-            Width: =376
-            X: =2
-            Y: =0
-            ZIndex: =13
-
-            DataCardKey38 As label:
-                Align: =Align.Center
-                AutoHeight: =true
-                Height: =34
-                Text: ="Detalle del Producto"
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue38 As label:
-                Align: =Align.Center
-                AutoHeight: =true
-                DisplayMode: =Parent.DisplayMode
-                Height: =27
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Default
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey38.Y + DataCardKey38.Height + 5
-                ZIndex: =2
-
         Product_ID_DataCard5 As typedDataCard.textualViewCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="Code"
@@ -181,7 +190,7 @@ ProductoEspec As screen:
             Height: =40
             Required: =false
             Width: =376
-            X: =0
+            X: =1
             Y: =1
             ZIndex: =13
 
@@ -220,7 +229,7 @@ ProductoEspec As screen:
             Height: =40
             Required: =true
             Width: =376
-            X: =1
+            X: =2
             Y: =1
             ZIndex: =13
 
@@ -249,6 +258,45 @@ ProductoEspec As screen:
                 Y: =DataCardKey39.Y + DataCardKey39.Height + 5
                 ZIndex: =2
 
+        Product_Detail_DataCard3 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Product_Detail"
+            Default: =ThisItem.Product_Detail
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Product_Detail"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =376
+            X: =0
+            Y: =1
+            ZIndex: =13
+
+            DataCardKey38 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                Height: =34
+                Text: ="Detalle del Producto"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue38 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey38.Y + DataCardKey38.Height + 5
+                ZIndex: =2
+
         Measure_DataCard3 As typedDataCard.comboBoxViewCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="Measure"
@@ -260,8 +308,8 @@ ProductoEspec As screen:
             Required: =false
             Update: =DataCardValue40.Selected
             Width: =376
-            X: =2
-            Y: =1
+            X: =0
+            Y: =2
             ZIndex: =13
 
             DataCardKey40 As label:
@@ -326,7 +374,7 @@ ProductoEspec As screen:
             Height: =40
             Required: =true
             Width: =376
-            X: =0
+            X: =1
             Y: =2
             ZIndex: =13
 
